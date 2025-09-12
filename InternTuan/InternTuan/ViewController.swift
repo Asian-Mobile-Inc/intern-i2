@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         self.updateLabelCollections()
     }
     
-    @objc func tap() {
+    @objc private func tap() {
         self.updateLabelCollections()
         debugPrint("did tap anh Thanh \(check)")
     }
