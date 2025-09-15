@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C26-lM-XiC">
-                                <rect key="frame" x="20" y="79" width="353" height="21"/>
+                                <rect key="frame" x="20" y="79" width="273" height="21"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,15 +52,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-DR-G0f">
-                                <rect key="frame" x="156.66666666666666" y="408.66666666666669" width="80" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="0Xt-dy-Kbj"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-lU-xMm">
+                                <rect key="frame" x="309" y="72" width="68" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Center"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reset"/>
                                 <connections>
-                                    <action selector="tapCenterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gEl-rc-QSk"/>
+                                    <action selector="tapResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0hd-Ma-QY5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,9 +66,10 @@
                         <constraints>
                             <constraint firstItem="mGj-2F-0pT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1fk-mz-a83"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dfV-JB-OY9" secondAttribute="trailing" constant="20" id="22k-yz-aZL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C26-lM-XiC" secondAttribute="trailing" constant="20" id="HId-vs-l4y"/>
+                            <constraint firstItem="b6w-lU-xMm" firstAttribute="leading" secondItem="C26-lM-XiC" secondAttribute="trailing" constant="16" id="7gO-cs-BeT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b6w-lU-xMm" secondAttribute="trailing" constant="16" id="8AX-mz-uxS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="C26-lM-XiC" secondAttribute="trailing" constant="100" id="HId-vs-l4y"/>
                             <constraint firstItem="wgZ-0F-Ocu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="I9R-Rm-dI1"/>
-                            <constraint firstItem="fwV-DR-G0f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IaD-Sh-Qcz"/>
                             <constraint firstItem="C26-lM-XiC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KBP-26-u3m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8sC-dl-VLw" secondAttribute="trailing" constant="20" id="QmX-I4-e9w"/>
                             <constraint firstItem="wgZ-0F-Ocu" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="aGy-1t-6Og"/>
@@ -82,12 +80,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mGj-2F-0pT" secondAttribute="trailing" constant="20" id="k9c-t1-JMC"/>
                             <constraint firstItem="8sC-dl-VLw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mpl-5q-1TZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wgZ-0F-Ocu" secondAttribute="trailing" constant="20" id="ndM-Pt-3qV"/>
-                            <constraint firstItem="fwV-DR-G0f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="r49-xX-354"/>
+                            <constraint firstItem="b6w-lU-xMm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="sLN-d2-CXR"/>
                             <constraint firstItem="8sC-dl-VLw" firstAttribute="top" secondItem="mGj-2F-0pT" secondAttribute="bottom" constant="8" symbolic="YES" id="tNC-ux-4tT"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="centerButton" destination="fwV-DR-G0f" id="7kf-J7-mMo"/>
                         <outlet property="titleLabel" destination="C26-lM-XiC" id="QqI-b8-ohf"/>
                         <outletCollection property="labelCollections" destination="mGj-2F-0pT" collectionClass="NSMutableArray" id="f4P-Qg-kLO"/>
                         <outletCollection property="labelCollections" destination="8sC-dl-VLw" collectionClass="NSMutableArray" id="Dma-6t-oCv"/>
