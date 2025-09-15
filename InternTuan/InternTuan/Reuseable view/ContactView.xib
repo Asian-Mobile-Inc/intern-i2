@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ContactView" customModule="InternTuan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="257" height="259"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quaDau" translatesAutoresizingMaskIntoConstraints="NO" id="DDG-ja-uBK">
+                    <rect key="frame" x="0.0" y="0.0" width="257" height="207.33333333333334"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qua Dau" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxe-D5-RWP">
+                    <rect key="frame" x="0.0" y="207.33333333333334" width="257" height="51.666666666666657"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDC-o1-7v1">
+                    <rect key="frame" x="0.0" y="0.0" width="257" height="259"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=""/>
+                    <connections>
+                        <action selector="tapContactView:" destination="iN0-l3-epB" eventType="touchUpInside" id="tMO-eZ-OVb"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Oxe-D5-RWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2hi-Km-W1J"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Oxe-D5-RWP" secondAttribute="bottom" id="AGA-BS-TuJ"/>
+                <constraint firstItem="DDG-ja-uBK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Doz-ei-1yu"/>
+                <constraint firstItem="iDC-o1-7v1" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="EvE-Sr-y8v"/>
+                <constraint firstItem="iDC-o1-7v1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HQW-08-yqe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DDG-ja-uBK" secondAttribute="trailing" id="Lcr-w8-aQY"/>
+                <constraint firstItem="iDC-o1-7v1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PGo-k3-OQ0"/>
+                <constraint firstItem="DDG-ja-uBK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Q5B-VD-QU2"/>
+                <constraint firstItem="Oxe-D5-RWP" firstAttribute="top" secondItem="DDG-ja-uBK" secondAttribute="bottom" id="f5W-hl-8sZ"/>
+                <constraint firstItem="DDG-ja-uBK" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.8" id="gKH-El-Ca1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Oxe-D5-RWP" secondAttribute="trailing" id="ph5-qv-VDF"/>
+                <constraint firstItem="iDC-o1-7v1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ujO-w7-Nwq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="DDG-ja-uBK" id="CiY-KO-158"/>
+                <outlet property="label" destination="Oxe-D5-RWP" id="Scc-tq-38z"/>
+            </connections>
+            <point key="canvasLocation" x="224.80000000000001" y="-452.58620689655174"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="quaDau" width="966" height="900"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
