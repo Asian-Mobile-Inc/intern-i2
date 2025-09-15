@@ -54,9 +54,6 @@ class ViewController: UIViewController {
         tapButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
         self.view.addSubview(tapButton)
         
-//        self.anhThanhImage.frame = CGRect(x: 200, y: 200, width: 100, height: 100)
-//        self.view.addSubview(anhThanhImage)
-        
 //IBOutlet
         self.titleLabel.text = "Title Label"
         self.updateLabelCollections()
