@@ -11,7 +11,7 @@ class Issue4ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rectView = RectangularView(frame: CGRect(x: 20, y: 150, width: 300, height: 200))
+        let rectView = RectangularView(frame: CGRect(x: 20 * 2 + 5, y: 150, width: 300, height: 300))
         
         self.view.addSubview(rectView)
     }
