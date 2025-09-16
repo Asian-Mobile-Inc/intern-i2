@@ -20,7 +20,7 @@ class RectangularView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        let path = createHalfCircle()
+        let path = createCircle()
         
         UIColor.lightGray.setFill()
         UIColor.red.setStroke()
@@ -53,10 +53,11 @@ class RectangularView: UIView {
     }
     
     func createCircle() -> UIBezierPath {
-        return UIBezierPath(ovalIn: CGRect(x: 0,
-                                           y: 0,
-                                           width: self.frame.size.height,
-                                           height: self.frame.size.height))
+        let r = self.frame.size.height < self.frame.size.width ? self.frame.size.height : self.frame.size.width
+        return UIBezierPath(ovalIn: CGRect(x: self.frame.size.width == r ? 0 : self.frame.size.width / 2 - r / 2,
+                                           y: self.frame.size.height == r ? 0 : self.frame.size.height / 2 - r / 2,
+                                           width: r,
+                                           height: r))
     }
     
     func createCustomRadiusShape() -> UIBezierPath {
