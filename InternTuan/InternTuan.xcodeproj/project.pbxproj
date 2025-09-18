@@ -14,6 +14,7 @@
 		7223E7792E73B28E0090D045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7223E7782E73B28E0090D045 /* Assets.xcassets */; };
 		7223E77C2E73B28E0090D045 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7223E77A2E73B28E0090D045 /* LaunchScreen.storyboard */; };
 		722516762E7BE50800DEB3C6 /* RectangularView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722516752E7BE50800DEB3C6 /* RectangularView2.swift */; };
+		722516792E7BEF3B00DEB3C6 /* Issue5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722516782E7BEF3B00DEB3C6 /* Issue5ViewController.swift */; };
 		72B7B9992E7945DE00A7FC45 /* Issue4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B7B9982E7945DE00A7FC45 /* Issue4ViewController.swift */; };
 		72B7B9A12E794C8B00A7FC45 /* RectangularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B7B9A02E794C8B00A7FC45 /* RectangularView.swift */; };
 		72CA3F292E77AC7400375371 /* IssueViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CA3F282E77AC7400375371 /* IssueViewTableViewController.swift */; };
@@ -34,6 +35,7 @@
 		7223E77B2E73B28E0090D045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7223E77D2E73B28E0090D045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		722516752E7BE50800DEB3C6 /* RectangularView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularView2.swift; sourceTree = "<group>"; };
+		722516782E7BEF3B00DEB3C6 /* Issue5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue5ViewController.swift; sourceTree = "<group>"; };
 		72B7B9982E7945DE00A7FC45 /* Issue4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue4ViewController.swift; sourceTree = "<group>"; };
 		72B7B9A02E794C8B00A7FC45 /* RectangularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularView.swift; sourceTree = "<group>"; };
 		72CA3F282E77AC7400375371 /* IssueViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueViewTableViewController.swift; sourceTree = "<group>"; };
@@ -76,14 +78,22 @@
 			children = (
 				72CA3F342E77B65700375371 /* Table view */,
 				72CA3F272E77AC5500375371 /* Issues */,
-				7223E7752E73B28D0090D045 /* Main.storyboard */,
 				7223E7782E73B28E0090D045 /* Assets.xcassets */,
 				7223E76F2E73B28D0090D045 /* AppDelegate.swift */,
 				7223E7712E73B28D0090D045 /* SceneDelegate.swift */,
+				7223E7752E73B28D0090D045 /* Main.storyboard */,
 				7223E77A2E73B28E0090D045 /* LaunchScreen.storyboard */,
 				7223E77D2E73B28E0090D045 /* Info.plist */,
 			);
 			path = InternTuan;
+			sourceTree = "<group>";
+		};
+		722516772E7BEEF200DEB3C6 /* Issue 5 (auto layout) */ = {
+			isa = PBXGroup;
+			children = (
+				722516782E7BEF3B00DEB3C6 /* Issue5ViewController.swift */,
+			);
+			path = "Issue 5 (auto layout)";
 			sourceTree = "<group>";
 		};
 		72B7B99A2E794BCD00A7FC45 /* Issue1 (View) n 2 (touch) */ = {
@@ -145,6 +155,7 @@
 				72B7B99A2E794BCD00A7FC45 /* Issue1 (View) n 2 (touch) */,
 				72B7B99B2E794BF000A7FC45 /* Issue 3 (custom view) */,
 				72B7B99C2E794C1000A7FC45 /* Issue 4 (draw) */,
+				722516772E7BEEF200DEB3C6 /* Issue 5 (auto layout) */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -236,6 +247,7 @@
 				72CA3F3B2E77BEAC00375371 /* ContactView.swift in Sources */,
 				72B7B9992E7945DE00A7FC45 /* Issue4ViewController.swift in Sources */,
 				72CA3F2B2E77ACD600375371 /* Issue3ViewController.swift in Sources */,
+				722516792E7BEF3B00DEB3C6 /* Issue5ViewController.swift in Sources */,
 				722516762E7BE50800DEB3C6 /* RectangularView2.swift in Sources */,
 				72CA3F322E77B06500375371 /* IssueViewsTableViewCell.swift in Sources */,
 				72B7B9A12E794C8B00A7FC45 /* RectangularView.swift in Sources */,

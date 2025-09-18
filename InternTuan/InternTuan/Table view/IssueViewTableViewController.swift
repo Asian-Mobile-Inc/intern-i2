@@ -17,7 +17,8 @@ class IssueViewTableViewController: UITableViewController {
     private var issueViewIdentifiers: [String] = ["Issue1n2ViewController",
                                                   "Issue1n2ViewController",
                                                   "Issue3ViewController",
-                                                  "Issue4ViewController"]
+                                                  "Issue4ViewController",
+                                                  "Issue5ViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
