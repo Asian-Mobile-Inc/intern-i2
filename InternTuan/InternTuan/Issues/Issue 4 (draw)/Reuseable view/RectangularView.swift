@@ -33,16 +33,18 @@ class RectangularView: UIView {
         path.stroke()
         path.close()
         
-        let r = height - 50
+        let a = width / 12
         
-        let path1 = UIBezierPath(ovalIn: CGRect(x: width / 2 - r / 2, y: height / 2 - r / 2, width: r, height: r))
+        let r = height - a * 2
+        
+        let path1 = UIBezierPath(ovalIn: CGRect(x: a, y: a, width: r, height: r))
         UIColor.white.setFill()
         path1.fill()
 //        UIColor.red.setStroke()
         path1.stroke()
         path1.close()
         
-        let a = 25.0
+        
         
         let path2 = UIBezierPath()
         path2.move(to: CGPoint(x: width / 2, y: a))
@@ -55,10 +57,10 @@ class RectangularView: UIView {
         path2.stroke()
         path2.close()
         
-        let r3 = (width / 2 - 25) / 2
+        let r3 = (width / 2 - a) / 2
 //MARK: green
         let path3 = UIBezierPath(arcCenter: CGPoint(x: width / 2 + r3, y: height / 2 - r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 - 1.57 + 1.57,
                                  endAngle: 5.495 - 1.57,
                                  clockwise: true)
@@ -69,7 +71,7 @@ class RectangularView: UIView {
         path3.close()
 
         let path31 = UIBezierPath(arcCenter: CGPoint(x: width / 2 + r3, y: height / 2 - r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 - 1.57,
                                   endAngle: 5.495 - 1.57 - 1.57,
                                  clockwise: true)
@@ -80,7 +82,7 @@ class RectangularView: UIView {
         path31.close()
 //MARK: blue
         let path4 = UIBezierPath(arcCenter: CGPoint(x: width / 2 - r3, y: height / 2 + r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 + 1.57 + 1.57,
                                  endAngle: 5.495 + 1.57,
                                  clockwise: true)
@@ -89,9 +91,9 @@ class RectangularView: UIView {
 //        UIColor.blue.setStroke()
         path4.stroke()
         path4.close()
-        
+
         let path41 = UIBezierPath(arcCenter: CGPoint(x: width / 2 - r3, y: height / 2 + r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 + 1.57,
                                   endAngle: 5.495 + 1.57 - 1.57,
                                  clockwise: true)
@@ -102,7 +104,7 @@ class RectangularView: UIView {
         path41.close()
 //MARK: yellow
         let path5 = UIBezierPath(arcCenter: CGPoint(x: width / 2 + r3, y: height / 2 + r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 + 1.57,
                                  endAngle: 5.495,
                                  clockwise: true)
@@ -111,9 +113,9 @@ class RectangularView: UIView {
 //        UIColor.yellow.setStroke()
         path5.stroke()
         path5.close()
-        
+
         let path51 = UIBezierPath(arcCenter: CGPoint(x: width / 2 + r3, y: height / 2 + r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355,
                                   endAngle: 5.495 - 1.57,
                                  clockwise: true)
@@ -124,7 +126,7 @@ class RectangularView: UIView {
         path51.close()
 //MARK: red
         let path6 = UIBezierPath(arcCenter: CGPoint(x: width / 2 - r3, y: height / 2 - r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 + 3.14 + 1.57,
                                  endAngle: 5.495 + 3.14,
                                  clockwise: true)
@@ -133,9 +135,9 @@ class RectangularView: UIView {
 //        UIColor.red.setStroke()
         path6.stroke()
         path6.close()
-        
+
         let path61 = UIBezierPath(arcCenter: CGPoint(x: width / 2 - r3, y: height / 2 - r3),
-                                 radius: r3 + 25,
+                                 radius: r3 + a,
                                  startAngle: 2.355 + 3.14,
                                   endAngle: 5.495 + 3.14 - 1.57,
                                  clockwise: true)
