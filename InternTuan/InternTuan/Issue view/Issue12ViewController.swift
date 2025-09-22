@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class Issue12ViewController: UIViewController {
 
     private var check = -1
     private var path = UIBezierPath()
