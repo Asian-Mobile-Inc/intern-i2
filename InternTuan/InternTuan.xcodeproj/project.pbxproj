@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,10 @@
 		72CA3F3A2E77BEAC00375371 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		72CA3F3C2E77BEB500375371 /* ContactView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		04F9F6642E813A5800FA232A /* Issue 6 (stack view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 6 (stack view)"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7223E7692E73B28D0090D045 /* Frameworks */ = {
@@ -156,6 +160,7 @@
 				72B7B99B2E794BF000A7FC45 /* Issue 3 (custom view) */,
 				72B7B99C2E794C1000A7FC45 /* Issue 4 (draw) */,
 				722516772E7BEEF200DEB3C6 /* Issue 5 (auto layout) */,
+				04F9F6642E813A5800FA232A /* Issue 6 (stack view) */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -183,6 +188,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				04F9F6642E813A5800FA232A /* Issue 6 (stack view) */,
 			);
 			name = InternTuan;
 			productName = InternTuan;

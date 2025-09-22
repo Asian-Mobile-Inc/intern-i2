@@ -18,7 +18,8 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue1n2ViewController",
                                                   "Issue3ViewController",
                                                   "Issue4ViewController",
-                                                  "Issue5ViewController"]
+                                                  "Issue5ViewController",
+                                                  "Issue6ViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
