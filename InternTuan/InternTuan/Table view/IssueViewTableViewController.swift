@@ -18,8 +18,9 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue1n2ViewController",
                                                   "Issue3ViewController",
                                                   "Issue4ViewController",
-                                                  "Issue5ViewController",
-                                                  "Issue6ViewController"]
+                                                  "Issue5ViewController"]
+    
+    private var issueVC: [UIViewController] = [Issue6ViewController.instantiate()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class IssueViewTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.issueViewIdentifiers.count
+        return self.issueViewIdentifiers.count + issueVC.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,11 +46,16 @@ class IssueViewTableViewController: UITableViewController {
 
 extension IssueViewTableViewController: tableViewCellProtocol {
     func didTapCell(index: Int) {
-        if let storyboard = self.storyboard {
-            if storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index]) != nil {
-                let vc = storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index])
-                self.navigationController?.pushViewController(vc, animated: true)
+        if (index < issueViewIdentifiers.count) {
+            if let storyboard = self.storyboard {
+                if storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index]) != nil {
+                    let vc = storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index])
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
+        } else {
+            let vc = issueVC[index - self.issueViewIdentifiers.count]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
     }
