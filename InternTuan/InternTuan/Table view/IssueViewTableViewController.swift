@@ -20,7 +20,7 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue4ViewController",
                                                   "Issue5ViewController"]
     
-    private var issueVC: [UIViewController] = [Issue6ViewController.instantiate()]
+    private var issueVC: [UIViewController] = [Issue6ViewController.instantiate(), Issue7ViewController.instantiate()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
