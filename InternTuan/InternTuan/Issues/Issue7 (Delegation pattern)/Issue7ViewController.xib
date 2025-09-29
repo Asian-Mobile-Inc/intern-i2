@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="demoBVCView" destination="Yb2-Q3-a7b" id="2dN-au-wfu"/>
                 <outlet property="demoNum" destination="b7p-4g-vfQ" id="dgB-zT-6Eh"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="zTI-vW-Ql6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="Qgw-ah-0Cv"/>
                 <outletCollection property="colorViews" destination="hgl-cc-ERs" collectionClass="NSMutableArray" id="D51-Xp-Oo7"/>
                 <outletCollection property="colorViews" destination="7uq-av-qan" collectionClass="NSMutableArray" id="gfO-pz-xgK"/>
                 <outletCollection property="colorViews" destination="hOj-Qd-7M9" collectionClass="NSMutableArray" id="ALb-B2-k1U"/>

@@ -20,7 +20,11 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue4ViewController",
                                                   "Issue5ViewController"]
     
-    private var issueVC: [UIViewController] = [Issue6ViewController.instantiate(), Issue7ViewController.instantiate()]
+    // Thay vì giữ instance, giữ factory để tạo mới khi cần
+    private let issueFactories: [() -> UIViewController] = [
+        { Issue6ViewController.instantiate() },
+        { Issue7ViewController.instantiate() }
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +35,7 @@ class IssueViewTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.issueViewIdentifiers.count + issueVC.count
+        return self.issueViewIdentifiers.count + issueFactories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,15 +52,15 @@ extension IssueViewTableViewController: tableViewCellProtocol {
     func didTapCell(index: Int) {
         if (index < issueViewIdentifiers.count) {
             if let storyboard = self.storyboard {
-                if storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index]) != nil {
-                    let vc = storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index])
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                let identifier = self.issueViewIdentifiers[index]
+                let vc = storyboard.instantiateViewController(withIdentifier: identifier)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            let vc = issueVC[index - self.issueViewIdentifiers.count]
+            // Tạo mới mỗi lần tap
+            let factoryIndex = index - self.issueViewIdentifiers.count
+            let vc = issueFactories[factoryIndex]()
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
 }

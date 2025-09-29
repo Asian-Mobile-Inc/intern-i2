@@ -17,10 +17,9 @@ protocol TestViewIssue7View: AnyObject {
 }
 
 class Issue7ViewController: UIViewController {
-
-    @IBOutlet weak var demoBVCView: UIView!
-    @IBOutlet weak var demoNum: UILabel!
-    @IBOutlet var colorViews: [UIView]!
+    @IBOutlet private weak var demoBVCView: UIView!
+    @IBOutlet private weak var demoNum: UILabel!
+    @IBOutlet private var colorViews: [UIView]!
     
     var count = 0 {
         didSet {
@@ -31,6 +30,11 @@ class Issue7ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.resetColorView()
+        self.demoBVCView.backgroundColor = UIColor.gray
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        debugPrint(CFGetRetainCount(view))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -54,28 +58,32 @@ class Issue7ViewController: UIViewController {
     private func resetColorView() {
         for view in colorViews {
             UIView.animate(withDuration: 0.3, animations: {
-                view.layer.cornerRadius = view.frame.size.width / 2
+                view.layer.cornerRadius = view.frame.size.width
             })
         }
     }
     
-    @IBAction func tapGoToViewB(_ sender: Any) {
-        
+    @IBAction private func tapGoToViewB(_ sender: Any) {
         let vc = TestIssue7ViewController.initinate()
-        vc.isue7 = self
+        vc.isue7Dts = self
         vc.isue7Dlg = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    @IBAction func tapSubButton(_ sender: Any) {
+    
+    @IBAction private func tapSubButton(_ sender: Any) {
         self.count -= 1
     }
     
-    @IBAction func tapPlusItem(_ sender: Any) {
+    @IBAction private func tapPlusItem(_ sender: Any) {
         self.count += 1
     }
  
     static func instantiate() -> Issue7ViewController {
         return Issue7ViewController(nibName: "Issue7ViewController", bundle: nil)
+    }
+    
+    deinit {
+        debugPrint("tam biet")
     }
 }
 
@@ -92,5 +100,6 @@ extension Issue7ViewController: Issue7ToTestDts {
 extension Issue7ViewController: TestViewIssue7View {
     func resetNumInA() {
         self.count = 0
+        debugPrint(CFGetRetainCount(view))
     }
 }
