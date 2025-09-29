@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Issue12ViewController: UIViewController {
+class Issue1n2ViewController: UIViewController {
 
     private var check = -1
     private var path = UIBezierPath()
@@ -33,14 +33,14 @@ class Issue12ViewController: UIViewController {
         self.view.addSubview(blueView)
         
 //avatar
-        let avartarFrame = CGRect(x: 50, y: 100, width: 100, height: 100)
+        let avartarFrame = CGRect(x: 50, y: 150, width: 100, height: 100)
         let userAvatar = UIImageView(image: UIImage(named: "anhThanh"))
         userAvatar.frame = avartarFrame
         userAvatar.contentMode = . scaleToFill
         self.view.addSubview(userAvatar)
         
 //label
-        let labelFrame = CGRect(x: 50, y: 200, width: 100, height: 30)
+        let labelFrame = CGRect(x: 50, y: 250, width: 100, height: 30)
         let nameLabel = UILabel(frame: labelFrame)
         nameLabel.text = "Anh Thanh"
         nameLabel.textAlignment = .center
@@ -48,7 +48,7 @@ class Issue12ViewController: UIViewController {
         self.view.addSubview(nameLabel)
         
 //button
-        let buttonFrame = CGRect(x: 50, y: 100, width: 100, height: 130)
+        let buttonFrame = CGRect(x: 50, y: 150, width: 100, height: 130)
         let tapButton = UIButton(frame: buttonFrame)
         tapButton.backgroundColor = .clear
         tapButton.addTarget(self, action: #selector(tap), for: .touchUpInside)

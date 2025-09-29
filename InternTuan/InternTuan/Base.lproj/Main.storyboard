@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Issue12 View Controller-->
+        <!--Issue 1n2 View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Issue12ViewController" id="BYZ-38-t0r" customClass="Issue12ViewController" customModule="InternTuan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Issue1n2ViewController" id="BYZ-38-t0r" customClass="Issue1n2ViewController" customModule="InternTuan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
             </objects>
             <point key="canvasLocation" x="3911" y="-415"/>
         </scene>
-        <!--Issue View Table View Controller-->
+        <!--Tuan intern-->
         <scene sceneID="Gzq-q0-ebE">
             <objects>
                 <tableViewController storyboardIdentifier="IssueViewTableViewController" id="ZxA-Ic-Zcs" customClass="IssueViewTableViewController" customModule="InternTuan" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,20 +122,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueViewsTableViewCell" id="nae-J9-toT" customClass="IssueViewsTableViewCell" customModule="InternTuan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="42.666667938232422"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nae-J9-toT" id="XZ1-xt-wzQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="42.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsp-Ji-AW5">
-                                            <rect key="frame" x="20" y="11.000000000000002" width="42" height="20.666666666666671"/>
+                                            <rect key="frame" x="20" y="11.000000000000002" width="42" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFM-cL-NaY">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="42.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666666666666664"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain"/>
                                             <connections>
@@ -163,7 +163,7 @@
                             <outlet property="delegate" destination="ZxA-Ic-Zcs" id="PzW-1R-h9Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3tJ-YA-vyn"/>
+                    <navigationItem key="navigationItem" title="Tuan intern" id="3tJ-YA-vyn"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gd3-EB-M9C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,6 +186,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eST-WZ-u23" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="-415"/>
+        </scene>
+        <!--Issue4 View Controller-->
+        <scene sceneID="TBB-43-Ls6">
+            <objects>
+                <viewController storyboardIdentifier="Issue4ViewController" id="xZI-Mp-kUq" customClass="Issue4ViewController" customModule="InternTuan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XIG-sF-Y1g">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="SCT-lL-wJ9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PQl-AE-uLN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4819" y="-415"/>
         </scene>
     </scenes>
     <resources>

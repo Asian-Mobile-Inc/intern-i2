@@ -14,7 +14,10 @@ protocol tableViewCellProtocol: AnyObject {
 
 class IssueViewTableViewController: UITableViewController {
 
-    private var issueViewIdentifiers: [String] = ["Issue12ViewController", "Issue12ViewController", "Issue3ViewController"]
+    private var issueViewIdentifiers: [String] = ["Issue1n2ViewController",
+                                                  "Issue1n2ViewController",
+                                                  "Issue3ViewController",
+                                                  "Issue4ViewController"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
