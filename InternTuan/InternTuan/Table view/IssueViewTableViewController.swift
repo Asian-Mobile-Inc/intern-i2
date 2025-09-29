@@ -20,7 +20,6 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue4ViewController",
                                                   "Issue5ViewController"]
     
-    // Thay vì giữ instance, giữ factory để tạo mới khi cần
     private let issueFactories: [() -> UIViewController] = [
         { Issue6ViewController.instantiate() },
         { Issue7ViewController.instantiate() }
@@ -57,7 +56,6 @@ extension IssueViewTableViewController: tableViewCellProtocol {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            // Tạo mới mỗi lần tap
             let factoryIndex = index - self.issueViewIdentifiers.count
             let vc = issueFactories[factoryIndex]()
             self.navigationController?.pushViewController(vc, animated: true)
