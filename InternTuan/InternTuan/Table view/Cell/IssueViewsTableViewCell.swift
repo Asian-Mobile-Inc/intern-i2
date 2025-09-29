@@ -11,7 +11,7 @@ class IssueViewsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
-    var index: Int = 0
+    private var index: Int = 0
     
     weak var tableViewDlg: tableViewCellProtocol?
     

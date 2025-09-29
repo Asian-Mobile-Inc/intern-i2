@@ -10,7 +10,7 @@ import UIKit
 
 class MyImageTitleView: UIView {
     
-    var count = 0
+    private var count = 0
     
     var avatar: UIImageView?
     var label: UILabel?
@@ -43,13 +43,15 @@ class MyImageTitleView: UIView {
             self.addSubview(label)
         }
         
-        let button = UIButton(frame: CGRect(x: 0,
+        if var button = button {
+            button = UIButton(frame: CGRect(x: 0,
                                             y: 0,
                                             width: Int(self.frame.size.width),
                                             height: Int(self.frame.size.height)))
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(numCount), for: .touchUpInside)
-        self.addSubview(button)
+            button.backgroundColor = .clear
+            button.addTarget(self, action: #selector(numCount), for: .touchUpInside)
+            self.addSubview(button)
+        }
     }
     
     @objc func numCount() {
