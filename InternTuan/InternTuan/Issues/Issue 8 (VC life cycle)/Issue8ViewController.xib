@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Issue8ViewController" customModule="InternTuan" customModuleProvider="target">
+            <connections>
+                <outlet property="childVCButton" destination="J62-FW-ke8" id="4Hj-M7-cNG"/>
+                <outlet property="headerView" destination="iGT-w9-ogA" id="xWg-aU-0pg"/>
+                <outlet property="view" destination="iN0-l3-epB" id="NLp-j3-m9X"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issue 8 VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0y-UM-CBW">
+                    <rect key="frame" x="156" y="415.66666666666669" width="81.333333333333314" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOl-sN-I0z">
+                    <rect key="frame" x="155.33333333333334" y="568" width="82.666666666666657" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Present"/>
+                    <connections>
+                        <action selector="tapPresent:" destination="-1" eventType="touchUpInside" id="KpR-o2-3i3"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGT-w9-ogA">
+                    <rect key="frame" x="0.0" y="118" width="393" height="100"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="nIy-d9-Gsc"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J62-FW-ke8">
+                    <rect key="frame" x="136.33333333333334" y="644" width="120.33333333333334" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="add child VC"/>
+                    <connections>
+                        <action selector="tapAddChildVC:" destination="-1" eventType="touchUpInside" id="Kkg-sh-sDm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="iGT-w9-ogA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2HH-GG-CEL"/>
+                <constraint firstItem="jOl-sN-I0z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="161.5" id="D5S-Um-MBp"/>
+                <constraint firstItem="iGT-w9-ogA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Rn4-A0-7jQ"/>
+                <constraint firstItem="h0y-UM-CBW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="W6k-mr-ty1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iGT-w9-ogA" secondAttribute="trailing" id="c2P-Fb-DOk"/>
+                <constraint firstItem="J62-FW-ke8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iGv-Iw-x74"/>
+                <constraint firstItem="jOl-sN-I0z" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jOa-jZ-Suj"/>
+                <constraint firstItem="h0y-UM-CBW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vcq-CP-P60"/>
+                <constraint firstItem="J62-FW-ke8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="237.5" id="wIo-MA-WAG"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
