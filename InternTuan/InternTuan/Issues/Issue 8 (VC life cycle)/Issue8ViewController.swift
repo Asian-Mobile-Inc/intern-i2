@@ -14,21 +14,18 @@ class Issue8ViewController: UIViewController {
     @IBOutlet private weak var changeWidthButtonWidth: NSLayoutConstraint!
     @IBOutlet private weak var greyView: UIView!
     @IBOutlet private weak var greyViewTrailingSATrailingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var headerView: UIView!
     
-    var didAddChildVC = false
     
-    let logger = Logger()
-    
-    var isTooLong: Bool = false
-    
-    var isDarkMode: Bool = false {
+    private var didAddChildVC = false
+    private let logger = Logger()
+    private var isTooLong: Bool = false
+    private var isDarkMode: Bool = false {
         didSet {
             overrideUserInterfaceStyle = isDarkMode ? .dark : .light
             self.changeModeButton.setTitle(isDarkMode ? "light mode" : "dark mode", for: .normal)
         }
     }
-    
-    @IBOutlet private weak var headerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +69,20 @@ class Issue8ViewController: UIViewController {
         super.viewDidDisappear(animated)
         logger.log("Issue 8 VC view did disappear")
         self.greyViewTrailingSATrailingConstraint.constant = self.view.frame.size.width
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        debugPrint("safe area did change")
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        debugPrint("traint collection did change")
+    }
+    
+    override func updateViewConstraints() {
+        self.changeWidthButtonWidth.constant = isTooLong ? 150 : 200
+        self.isTooLong.toggle()
+        super.updateViewConstraints()
     }
     
     static func instantiate() -> Issue8ViewController {
@@ -127,20 +138,6 @@ class Issue8ViewController: UIViewController {
     
     @IBAction private func tapChangeWidthButton(_ sender: Any) {
         view.setNeedsUpdateConstraints()
-    }
-    
-    override func viewSafeAreaInsetsDidChange() {
-        debugPrint("safe area did change")
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        debugPrint("traint collection did change")
-    }
-    
-    override func updateViewConstraints() {
-        self.changeWidthButtonWidth.constant = isTooLong ? 150 : 200
-        self.isTooLong.toggle()
-        super.updateViewConstraints()
     }
     
     deinit{
