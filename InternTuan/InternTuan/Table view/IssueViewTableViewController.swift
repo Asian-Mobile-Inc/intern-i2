@@ -22,7 +22,8 @@ class IssueViewTableViewController: UITableViewController {
     
     private let issueFactories: [() -> UIViewController] = [
         { Issue6ViewController.instantiate() },
-        { Issue7ViewController.instantiate() }
+        { Issue7ViewController.instantiate() },
+        { Issue8ViewController.instantiate() }
     ]
     
     override func viewDidLoad() {
