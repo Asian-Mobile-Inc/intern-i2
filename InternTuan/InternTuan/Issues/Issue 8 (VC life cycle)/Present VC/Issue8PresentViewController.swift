@@ -16,6 +16,11 @@ class Issue8PresentViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        if isMovingFromParent {
+            debugPrint("pop")
+        } else if isBeingDismissed {
+            debugPrint("dismiss")
+        }
         debugPrint("Issue 8 Present VC did disappear")
     }
     
