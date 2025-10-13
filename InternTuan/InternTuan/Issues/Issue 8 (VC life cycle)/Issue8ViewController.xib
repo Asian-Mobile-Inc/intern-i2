@@ -69,7 +69,6 @@
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iGT-w9-ogA">
                     <rect key="frame" x="0.0" y="118" width="393" height="100"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="nIy-d9-Gsc"/>
                     </constraints>
@@ -89,7 +88,6 @@
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWI-pT-HdH">
                     <rect key="frame" x="0.0" y="717.33333333333337" width="393" height="66.666666666666629"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfv-l7-YTg">
                     <rect key="frame" x="121.66666666666669" y="218" width="150" height="38.333333333333314"/>

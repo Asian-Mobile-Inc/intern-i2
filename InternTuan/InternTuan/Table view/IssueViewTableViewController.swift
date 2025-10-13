@@ -18,18 +18,22 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue1n2ViewController",
                                                   "Issue3ViewController",
                                                   "Issue4ViewController",
-                                                  "Issue5ViewController"]
+                                                  "Issue5ViewController"
+    ]
     
     private let issueFactories: [() -> UIViewController] = [
         { Issue6ViewController.instantiate() },
         { Issue7ViewController.instantiate() },
-        { Issue8ViewController.instantiate() }
+        { Issue8ViewController.instantiate() },
+        { Issue9ViewController.instantiate() }
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "back"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

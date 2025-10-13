@@ -30,6 +30,10 @@ class Issue8ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logger.log("Issue 8 VC view did load")
+        navigationItem.title = "issue 8"
+        navigationItem.prompt = "back to the hood"
+        navigationItem.backButtonTitle = "back"
+        view.backgroundColor = .green
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,7 +101,6 @@ class Issue8ViewController: UIViewController {
         
         childVc.view.frame = self.headerView.bounds
         childVc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         childVc.didMove(toParent: self)
     }
     
@@ -143,7 +146,4 @@ class Issue8ViewController: UIViewController {
     deinit{
         logger.log("Issue 8 VC deinit")
     }
-    
-    
-    
 }
