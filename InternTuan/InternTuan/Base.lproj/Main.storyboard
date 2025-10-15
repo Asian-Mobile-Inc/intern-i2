@@ -170,21 +170,6 @@
             </objects>
             <point key="canvasLocation" x="2152" y="-415"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="VKI-Gd-SrH">
-            <objects>
-                <viewController id="QXk-lW-5A6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WVV-tt-teL">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ICX-PW-mfq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="phl-K2-OyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2152" y="370"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="KlK-8N-i1t">
             <objects>
@@ -259,6 +244,9 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anhThanh" translatesAutoresizingMaskIntoConstraints="NO" id="omw-3J-D5P">
                                 <rect key="frame" x="275" y="118" width="108" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="omw-3J-D5P" secondAttribute="height" multiplier="1:1" id="uJK-Fx-2YA"/>
+                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="anhThanh" translatesAutoresizingMaskIntoConstraints="NO" id="MCJ-by-gvt">
                                 <rect key="frame" x="201" y="656" width="192" height="128"/>
@@ -291,7 +279,6 @@
                             <constraint firstItem="phx-zn-GS6" firstAttribute="centerY" secondItem="CvV-Gj-REG" secondAttribute="centerY" id="ik5-cG-XKp"/>
                             <constraint firstItem="1z5-vQ-qYt" firstAttribute="centerX" secondItem="CvV-Gj-REG" secondAttribute="centerX" id="jIy-rD-3i5"/>
                             <constraint firstItem="1z5-vQ-qYt" firstAttribute="width" secondItem="CvV-Gj-REG" secondAttribute="width" multiplier="0.3" id="jJT-yi-iIh"/>
-                            <constraint firstItem="omw-3J-D5P" firstAttribute="width" secondItem="omw-3J-D5P" secondAttribute="height" multiplier="1:1" id="uJK-Fx-2YA"/>
                             <constraint firstItem="omw-3J-D5P" firstAttribute="top" secondItem="rhp-U8-GxA" secondAttribute="top" id="ywc-eT-9TI"/>
                         </constraints>
                     </view>
