@@ -47,6 +47,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		042720DF2E851FDB00928BF7 /* Issue 7 (Delegation pattern) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 7 (Delegation pattern)"; sourceTree = "<group>"; };
+		043C73B12E8CDAE9002C1C31 /* Issue 8 (VC life cycle) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 8 (VC life cycle)"; sourceTree = "<group>"; };
+		04D909992E8E7E0900DB410C /* Issue 9 (navigation) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 9 (navigation)"; sourceTree = "<group>"; };
 		04F9F6642E813A5800FA232A /* Issue 6 (stack view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 6 (stack view)"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -100,12 +103,12 @@
 			path = "Issue 5 (auto layout)";
 			sourceTree = "<group>";
 		};
-		72B7B99A2E794BCD00A7FC45 /* Issue1 (View) n 2 (touch) */ = {
+		72B7B99A2E794BCD00A7FC45 /* Issue 1 (View) n 2 (touch) */ = {
 			isa = PBXGroup;
 			children = (
 				7223E7732E73B28D0090D045 /* Issue1n2ViewController.swift */,
 			);
-			path = "Issue1 (View) n 2 (touch)";
+			path = "Issue 1 (View) n 2 (touch)";
 			sourceTree = "<group>";
 		};
 		72B7B99B2E794BF000A7FC45 /* Issue 3 (custom view) */ = {
@@ -156,11 +159,14 @@
 		72CA3F272E77AC5500375371 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
-				72B7B99A2E794BCD00A7FC45 /* Issue1 (View) n 2 (touch) */,
+				72B7B99A2E794BCD00A7FC45 /* Issue 1 (View) n 2 (touch) */,
 				72B7B99B2E794BF000A7FC45 /* Issue 3 (custom view) */,
 				72B7B99C2E794C1000A7FC45 /* Issue 4 (draw) */,
 				722516772E7BEEF200DEB3C6 /* Issue 5 (auto layout) */,
 				04F9F6642E813A5800FA232A /* Issue 6 (stack view) */,
+				042720DF2E851FDB00928BF7 /* Issue 7 (Delegation pattern) */,
+				043C73B12E8CDAE9002C1C31 /* Issue 8 (VC life cycle) */,
+				04D909992E8E7E0900DB410C /* Issue 9 (navigation) */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -190,6 +196,9 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				042720DF2E851FDB00928BF7 /* Issue 7 (Delegation pattern) */,
+				043C73B12E8CDAE9002C1C31 /* Issue 8 (VC life cycle) */,
+				04D909992E8E7E0900DB410C /* Issue 9 (navigation) */,
 				04F9F6642E813A5800FA232A /* Issue 6 (stack view) */,
 			);
 			name = InternTuan;
