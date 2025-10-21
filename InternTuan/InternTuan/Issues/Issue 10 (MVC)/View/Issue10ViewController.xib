@@ -21,27 +21,60 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-1F-HgN">
-                    <rect key="frame" x="261" y="118" width="116" height="39"/>
+                    <rect key="frame" x="268" y="118" width="109" height="39"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="refresh data"/>
+                    <buttonConfiguration key="configuration" style="filled" title="notification"/>
                     <connections>
                         <action selector="tapRefreshButton" destination="-1" eventType="touchUpInside" id="Bov-L6-AcQ"/>
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uW8-dJ-lhT">
-                    <rect key="frame" x="16" y="177" width="361" height="587"/>
+                    <rect key="frame" x="16" y="177" width="361" height="537"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmr-tH-bf5">
+                    <rect key="frame" x="156.66666666666666" y="118" width="80" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="closure"/>
+                    <connections>
+                        <action selector="tapClosureButton" destination="-1" eventType="touchUpInside" id="JLa-ej-K3m"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jn8-Wh-kbm">
+                    <rect key="frame" x="16" y="118" width="91" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="delegate"/>
+                    <connections>
+                        <action selector="tapDelegateButton" destination="-1" eventType="touchUpInside" id="8p1-lv-Hgf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-UB-zgA">
+                    <rect key="frame" x="165" y="745" width="63" height="39"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="1xx-1O-F5D"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="reset"/>
+                    <connections>
+                        <action selector="tapResetButton" destination="-1" eventType="touchUpInside" id="NT9-Su-3pQ"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="uW8-dJ-lhT" firstAttribute="top" secondItem="yD1-1F-HgN" secondAttribute="bottom" constant="20" id="32m-zU-5PB"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uW8-dJ-lhT" secondAttribute="bottom" constant="20" id="CPh-cf-NHd"/>
+                <constraint firstItem="Jn8-Wh-kbm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="9X7-J2-KVG"/>
+                <constraint firstItem="Rmr-tH-bf5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9lH-6r-Gcc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uW8-dJ-lhT" secondAttribute="bottom" constant="70" id="CPh-cf-NHd"/>
                 <constraint firstItem="uW8-dJ-lhT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="P7g-Ud-CnG"/>
+                <constraint firstItem="gA7-UB-zgA" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Rlt-eM-ef9"/>
                 <constraint firstItem="yD1-1F-HgN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Xsu-7n-D2K"/>
+                <constraint firstItem="Rmr-tH-bf5" firstAttribute="centerY" secondItem="yD1-1F-HgN" secondAttribute="centerY" id="dSb-Dc-5nv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uW8-dJ-lhT" secondAttribute="trailing" constant="16" id="eex-J9-zVX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yD1-1F-HgN" secondAttribute="trailing" constant="16" id="qnF-8m-a0M"/>
+                <constraint firstItem="gA7-UB-zgA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rxX-qN-6AA"/>
+                <constraint firstItem="Jn8-Wh-kbm" firstAttribute="centerY" secondItem="yD1-1F-HgN" secondAttribute="centerY" id="uKW-z1-Xzj"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="111.9718309859155"/>
         </view>

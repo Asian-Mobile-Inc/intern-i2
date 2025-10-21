@@ -6,8 +6,16 @@
 //
 
 import Foundation
+import Combine
 
-final class StuentService {
+protocol Issue10ViewControllefDelegate: AnyObject {
+    func didFetchStudent(students: [Student])
+}
+
+final class StudentService {
+    weak var issue10VCDlg: Issue10ViewControllefDelegate?
+    
+    
     let json = """
     [
         {"name": "An", "age": 20},
@@ -17,15 +25,15 @@ final class StuentService {
     """
     
 //MARK: fetch student list delegate
-    func fetchStudentDelegate() -> [Student]? {
+    func fetchStudentDelegate() {
         let data = Data(json.utf8)
         
         do {
             let students = try JSONDecoder().decode([Student].self, from: data)
-            return students
+            debugPrint("call issue 10 VC delegate (model -> controllef)")
+            self.issue10VCDlg?.didFetchStudent(students: students)
         } catch(let error) {
             debugPrint("Error: \(error)")
-            return nil
         }
     }
     
@@ -34,9 +42,28 @@ final class StuentService {
         let data = Data(json.utf8)
         
         do {
-        
+            let students = try JSONDecoder().decode([Student].self, from: data)
+            debugPrint("call back from model (model -> controller)")
+            completion(.success(students))
         } catch (let error) {
-            debugPrint("Error: \(error)")
+            completion(.failure(error))
+        }
+    }
+    
+//MARK: fetch student list notification
+    func fetchStudentListNotification() {
+        let data = Data(json.utf8)
+        
+        do {
+            let students = try JSONDecoder().decode([Student].self, from: data)
+            debugPrint("post notification (model -> controller)")
+            NotificationCenter.default.post(
+                name: .didFetchStudentList,
+                object: nil,
+                userInfo: [StringConstants.notification.userInfo.students : students]
+            )
+        } catch (let error) {
+            debugPrint("error: \(error)")
         }
     }
 }

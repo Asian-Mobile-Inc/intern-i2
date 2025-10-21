@@ -14,4 +14,12 @@ enum StringConstants {
     enum viewController {
         static let issue10VC = "Issue10ViewController"
     }
+    enum notification {
+        enum name {
+            static let didFetchStudentList = "didFetchStudentList"
+        }
+        enum userInfo {
+            static let students = "students"
+        }
+    }
 }
