@@ -18,20 +18,29 @@ class IssueViewTableViewController: UITableViewController {
                                                   "Issue1n2ViewController",
                                                   "Issue3ViewController",
                                                   "Issue4ViewController",
-                                                  "Issue5ViewController"]
+                                                  "Issue5ViewController"
+    ]
     
-    private var issueVC: [UIViewController] = [Issue6ViewController.instantiate()]
+    private let issueFactories: [() -> UIViewController] = [
+        { Issue6ViewController.instantiate() },
+        { Issue7ViewController.instantiate() },
+        { Issue8ViewController.instantiate() },
+        { Issue9ViewController.instantiate() },
+        { Issue10ViewController.instantiate() }
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "back"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.issueViewIdentifiers.count + issueVC.count
+        return self.issueViewIdentifiers.count + issueFactories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,15 +57,14 @@ extension IssueViewTableViewController: tableViewCellProtocol {
     func didTapCell(index: Int) {
         if (index < issueViewIdentifiers.count) {
             if let storyboard = self.storyboard {
-                if storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index]) != nil {
-                    let vc = storyboard.instantiateViewController(withIdentifier: self.issueViewIdentifiers[index])
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                let identifier = self.issueViewIdentifiers[index]
+                let vc = storyboard.instantiateViewController(withIdentifier: identifier)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         } else {
-            let vc = issueVC[index - self.issueViewIdentifiers.count]
+            let factoryIndex = index - self.issueViewIdentifiers.count
+            let vc = issueFactories[factoryIndex]()
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
 }
