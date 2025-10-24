@@ -42,6 +42,11 @@ extension Issue10ViewController {
     
     private func setupService() {
         self.studentService.issue10VCDlg = self
+        
+        let cancelled = self.studentService.$onChange.sink(receiveValue: { string in
+            debugPrint(string)
+        })
+        
     }
     
     private func setupNotification() {
