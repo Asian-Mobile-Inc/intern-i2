@@ -9,7 +9,7 @@ import UIKit
 
 final class Issue10ViewController: UIViewController {
 
-    let studentService = StudentService()
+    private let studentService = StudentService()
     
     private var students: [Student] = []
     
@@ -42,11 +42,6 @@ extension Issue10ViewController {
     
     private func setupService() {
         self.studentService.issue10VCDlg = self
-        
-        let cancelled = self.studentService.$onChange.sink(receiveValue: { string in
-            debugPrint(string)
-        })
-        
     }
     
     private func setupNotification() {

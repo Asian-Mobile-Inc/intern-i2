@@ -11,18 +11,9 @@ import Combine
 protocol Issue10ViewControllefDelegate: AnyObject {
     func didFetchStudent(students: [Student])
 }
-
-enum StatusAction {
-    case succ
-    case fail
-}
  
 final class StudentService {
     weak var issue10VCDlg: Issue10ViewControllefDelegate?
-    
-    @Published var onChange: String = ""
-    
-    var action = PassthroughSubject<StatusAction, Never>()
     
     let json = """
     [
@@ -53,7 +44,7 @@ final class StudentService {
             let students = try JSONDecoder().decode([Student].self, from: data)
             debugPrint("call back from model (model -> controller)")
             completion(.success(students))
-            action.send(.succ)
+            
         } catch (let error) {
             completion(.failure(error))
         }
