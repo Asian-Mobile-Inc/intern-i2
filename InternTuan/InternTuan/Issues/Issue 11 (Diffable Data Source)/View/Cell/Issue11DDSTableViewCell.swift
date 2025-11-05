@@ -19,7 +19,13 @@ class Issue11DDSTableViewCell: UITableViewCell {
     }
 
     public func render(_ developer: Developer) {
-        self.nameLabel.text = developer.name
+        var name: String = ""
+        if (developer.age <= 22) {
+            name = "\(developer.name)\n\(developer.name)\n\(developer.name)"
+        } else {
+            name = developer.name
+        }
+        self.nameLabel.text = name
         self.ageLabel.text = String(developer.age)
     }
     

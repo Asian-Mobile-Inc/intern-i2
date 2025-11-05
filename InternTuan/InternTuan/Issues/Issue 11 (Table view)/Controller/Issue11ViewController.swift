@@ -58,6 +58,7 @@ class Issue11ViewController: UIViewController {
         super.viewDidLoad()
         self.setupUI()
         self.setupTableView()
+        self.setupHeaderView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -86,20 +87,37 @@ extension Issue11ViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-        self.tableView.isEditing = true
-//        self.tableView.dragDelegate = self
-//        self.tableView.dropDelegate = self
-//        self.tableView.dragInteractionEnabled = true
+//        self.tableView.isEditing = true
+        self.tableView.dragDelegate = self
+        self.tableView.dropDelegate = self
+        self.tableView.dragInteractionEnabled = true
 
+    }
+    
+    private func setupHeaderView() {
+        let nib = UINib(nibName: "HeaderView", bundle: nil)
+        self.tableView.register(nib, forHeaderFooterViewReuseIdentifier: "HeaderView")
+        self.tableView.sectionHeaderHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 36
     }
 }
 
 //MARK: table view delegate
 extension Issue11ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as! HeaderView
+        headerView.render(section)
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 }
 
 //MARK: table view datasource
 extension Issue11ViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return names.count
     }
@@ -121,9 +139,9 @@ extension Issue11ViewController: UITableViewDataSource {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return titles[section]
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return titles[section]
+//    }
     
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,
@@ -163,5 +181,44 @@ extension Issue11ViewController: UITableViewDataSource {
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return ["t", "h", "a", "o", "v", "y"]
+    }
+}
+
+extension Issue11ViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, itemsForBeginning session: any UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let dev = names[indexPath.section][indexPath.row]
+        let itemProvider = NSItemProvider(object: dev as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = dev
+        return [dragItem]
+    }
+}
+
+extension Issue11ViewController: UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView, canHandle session: any UIDropSession) -> Bool {
+        return session.localDragSession != nil
+    }
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: any UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        let operation: UIDropOperation = (session.localDragSession != nil) ? .move : .copy
+        return UITableViewDropProposal(operation: operation, intent: .insertAtDestinationIndexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath,
+              let item = coordinator.items.first,
+              let sourceIndexPath = item.sourceIndexPath,
+              let name = item.dragItem.localObject as? String
+        else {
+            return
+        }
+        
+        tableView.performBatchUpdates {
+            names[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+            names[destinationIndexPath.section].insert(name, at: destinationIndexPath.row)
+            tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+        }
+        
+        coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
     }
 }
