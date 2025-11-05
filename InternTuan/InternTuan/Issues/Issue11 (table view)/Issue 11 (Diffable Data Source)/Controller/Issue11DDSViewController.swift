@@ -144,17 +144,15 @@ extension Issue11DDSViewController: UITableViewDragDelegate, UITableViewDropDele
     
     func tableView(_ tableView: UITableView,performDropWith coordinator: UITableViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath else {
-            debugPrint("return")
             return
         }
-
-        debugPrint("destinationIndexPath: \(destinationIndexPath)")
         
         if let item = coordinator.items.first,
            let sourceDeveloper = item.dragItem.localObject as? Developer {
             debugPrint(item)
             var snapshot = dataSource.snapshot()
             
+//            if let này dùng để kiểm tra item có tồn tại hay không
             if let _ = snapshot.sectionIdentifier(containingItem: sourceDeveloper) {
                 snapshot.deleteItems([sourceDeveloper])
             }
