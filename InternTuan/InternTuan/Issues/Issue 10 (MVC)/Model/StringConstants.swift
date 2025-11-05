@@ -15,6 +15,7 @@ enum StringConstants {
     }
     enum viewController {
         static let issue10VC = "Issue10ViewController"
+        static let issue11MainVC = "Issue11MainViewController"
         static let issue11VC = "Issue11ViewController"
         static let issue11DetailVC = "Issue11DetailViewController"
         static let issue11DDSVC = "Issue11DDSViewController"

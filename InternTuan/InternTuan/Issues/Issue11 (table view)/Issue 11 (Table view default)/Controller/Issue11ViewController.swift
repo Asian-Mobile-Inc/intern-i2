@@ -87,7 +87,6 @@ extension Issue11ViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-//        self.tableView.isEditing = true
         self.tableView.dragDelegate = self
         self.tableView.dropDelegate = self
         self.tableView.dragInteractionEnabled = true
@@ -138,10 +137,6 @@ extension Issue11ViewController: UITableViewDataSource {
         let vc = Issue11DetailViewController.instantiate(name: name)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return titles[section]
-//    }
     
     func tableView(_ tableView: UITableView,
                    commit editingStyle: UITableViewCell.EditingStyle,

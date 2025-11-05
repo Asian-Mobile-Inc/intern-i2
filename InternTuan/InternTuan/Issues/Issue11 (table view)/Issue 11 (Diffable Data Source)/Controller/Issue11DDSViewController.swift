@@ -139,11 +139,10 @@ extension Issue11DDSViewController: UITableViewDragDelegate, UITableViewDropDele
 
     func tableView(_ tableView: UITableView,
                    canHandle session: UIDropSession) -> Bool {
-        return session.canLoadObjects(ofClass: NSString.self)
+        return true
     }
     
-    func tableView(_ tableView: UITableView,
-                   performDropWith coordinator: UITableViewDropCoordinator) {
+    func tableView(_ tableView: UITableView,performDropWith coordinator: UITableViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath else {
             debugPrint("return")
             return
@@ -168,14 +167,13 @@ extension Issue11DDSViewController: UITableViewDragDelegate, UITableViewDropDele
                 snapshot.appendItems([sourceDeveloper], toSection: destinationSection)
             }
             
-            dataSource.apply(snapshot, animatingDifferences: true)
+            dataSource.apply(snapshot, animatingDifferences: false)
         }
     }
     
-    func tableView(_ tableView: UITableView,
-                   dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
-        let parameters = UIDragPreviewParameters()
-        parameters.visiblePath = UIBezierPath(roundedRect: tableView.cellForRow(at: indexPath)?.bounds ?? .zero, cornerRadius: 12)
-        return parameters
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: any UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        let operation: UIDropOperation = (session.localDragSession != nil) ? .move : .copy
+        // intent: insert tại vị trí drop
+        return UITableViewDropProposal(operation: operation, intent: .insertAtDestinationIndexPath)
     }
 }
