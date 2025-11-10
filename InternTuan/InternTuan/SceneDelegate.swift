@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navBar.standardAppearance = appearance
         navBar.scrollEdgeAppearance = appearance
         navBar.compactAppearance = appearance
-        navBar.tintColor = .white
+        navBar.tintColor = .black
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

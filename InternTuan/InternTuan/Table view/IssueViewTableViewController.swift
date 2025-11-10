@@ -26,13 +26,14 @@ class IssueViewTableViewController: UITableViewController {
         { Issue7ViewController.instantiate() },
         { Issue8ViewController.instantiate() },
         { Issue9ViewController.instantiate() },
-        { Issue10ViewController.instantiate() }
+        { Issue10ViewController.instantiate() },
+        { Issue11MainViewController.instantiate() }
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backButtonTitle = "back"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.backBarButtonItem?.tintColor = UIColor.black
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
