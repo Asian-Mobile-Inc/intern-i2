@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Issue11MainViewController: UIViewController {
+final class Issue11MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

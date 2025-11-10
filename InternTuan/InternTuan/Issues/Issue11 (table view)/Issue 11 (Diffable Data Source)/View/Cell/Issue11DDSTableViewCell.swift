@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Issue11DDSTableViewCell: UITableViewCell {
+final class Issue11DDSTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var ageLabel: UILabel!

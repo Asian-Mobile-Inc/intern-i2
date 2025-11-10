@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Issue11ViewController: UIViewController {
+final class Issue11ViewController: UIViewController {
 
 //    var names: [String] = [
 //        "Tí",

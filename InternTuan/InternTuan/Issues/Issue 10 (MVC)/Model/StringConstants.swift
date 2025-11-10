@@ -13,6 +13,11 @@ enum StringConstants {
         static let cell = "cell"
         static let issue11DDScell = "Issue11DDSTableViewCell"
     }
+    
+    enum header {
+        static let header = "HeaderView"
+    }
+    
     enum viewController {
         static let issue10VC = "Issue10ViewController"
         static let issue11MainVC = "Issue11MainViewController"

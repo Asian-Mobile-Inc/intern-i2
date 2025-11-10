@@ -8,7 +8,7 @@
 import UIKit
 import OSLog
 
-class Issue11DragNDropViewController: UIViewController {
+final class Issue11DragNDropViewController: UIViewController {
 
     let logger = Logger()
     var draggedView: UIView?

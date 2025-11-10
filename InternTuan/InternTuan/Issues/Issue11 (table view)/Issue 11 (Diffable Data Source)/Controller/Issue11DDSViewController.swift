@@ -10,15 +10,15 @@ import OSLog
 
 final class Issue11DDSViewController: UIViewController {
 
-    let tableViewLogger = Logger(subsystem: "tuan", category: "tableView")
+    private let tableViewLogger = Logger(subsystem: "tuan", category: "tableView")
     
     enum Section: String {
         case android = "Android"
         case iOS = "iOS"
     }
     
-    let iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
-    let androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23), Developer(name: "anh Huy", age: 22), Developer(name: "Hoang", age: 21)]
+    private let iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
+    private let androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23), Developer(name: "anh Huy", age: 22), Developer(name: "Hoang", age: 21)]
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -43,17 +43,17 @@ extension Issue11DDSViewController {
         let nib = UINib(nibName: StringConstants.tableViewCell.issue11DDScell, bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: StringConstants.tableViewCell.issue11DDScell)
         
-        let headerNib = UINib(nibName: "HeaderView", bundle: nil)
-        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "HeaderView")
+        let headerNib = UINib(nibName: StringConstants.header.header, bundle: nil)
+        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: StringConstants.header.header)
         
         self.tableView.delegate = self
-        self.tableView.dragInteractionEnabled = true
         self.tableView.dragDelegate = self
         self.tableView.dropDelegate = self
+        self.tableView.dragInteractionEnabled = true
 
         // Bật automatic dimension cho header
         self.tableView.sectionHeaderHeight = UITableView.automaticDimension
-        self.tableView.estimatedSectionHeaderHeight = 44
+        self.tableView.estimatedSectionHeaderHeight = 36
     }
     
     private func configureDataSource() {
@@ -107,7 +107,7 @@ extension Issue11DDSViewController {
 extension Issue11DDSViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection sectionIndex: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderView") as? HeaderView else {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: StringConstants.header.header) as? HeaderView else {
             return nil
         }
         

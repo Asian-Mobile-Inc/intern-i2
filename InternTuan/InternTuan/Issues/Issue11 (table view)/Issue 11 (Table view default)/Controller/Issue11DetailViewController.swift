@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Issue11DetailViewController: UIViewController {
+final class Issue11DetailViewController: UIViewController {
 
     @IBOutlet private weak var nameLabel: UILabel!
     private var name: String?
