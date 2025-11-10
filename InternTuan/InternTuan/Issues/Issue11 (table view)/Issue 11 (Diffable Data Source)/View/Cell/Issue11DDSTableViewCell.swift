@@ -15,7 +15,7 @@ class Issue11DDSTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        selectionStyle = .none
     }
 
     public func render(_ developer: Developer) {
@@ -31,8 +31,14 @@ class Issue11DDSTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if selected {
+            self.backgroundColor = UIColor.lightGray
+            self.nameLabel.textColor = UIColor.systemPink
+            self.ageLabel.textColor = UIColor.systemPink
+        } else {
+            self.backgroundColor = UIColor.systemBackground
+            self.nameLabel.textColor = UIColor.black
+            self.ageLabel.textColor = UIColor.black
+        }
     }
-
 }

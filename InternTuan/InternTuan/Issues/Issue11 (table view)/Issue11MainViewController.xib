@@ -35,13 +35,23 @@
                         <action selector="tapUITBDiffableDataSourceButton" destination="-1" eventType="touchUpInside" id="gx0-HE-auy"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F2-uu-hyw">
+                    <rect key="frame" x="97" y="406.66666666666669" width="199" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Drag n drop stack view"/>
+                    <connections>
+                        <action selector="tapDragNDropStackViewButton" destination="-1" eventType="touchUpInside" id="8Rj-UL-U5u"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="8F2-uu-hyw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UfM-m7-Qwg"/>
                 <constraint firstItem="zJC-oc-Yuf" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bCg-2o-pls"/>
                 <constraint firstItem="zJC-oc-Yuf" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="113.5" id="mhL-e8-Hxr"/>
                 <constraint firstItem="pgo-z9-SmW" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-112.5" id="oIC-pM-aI8"/>
+                <constraint firstItem="8F2-uu-hyw" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rZk-rY-zy7"/>
                 <constraint firstItem="pgo-z9-SmW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tYB-Fa-HeR"/>
             </constraints>
             <point key="canvasLocation" x="53" y="109"/>

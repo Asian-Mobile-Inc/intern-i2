@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import OSLog
 
 final class Issue11DDSViewController: UIViewController {
 
+    let tableViewLogger = Logger(subsystem: "tuan", category: "tableView")
+    
     enum Section: String {
         case android = "Android"
         case iOS = "iOS"
@@ -120,6 +123,15 @@ extension Issue11DDSViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         // Để Auto Layout tự tính dựa vào nội dung
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableViewLogger.debug("did select cell at \(indexPath)")
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableViewLogger.debug("did deselect cell at \(indexPath)")
     }
 }
 

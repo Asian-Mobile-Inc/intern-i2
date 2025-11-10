@@ -30,4 +30,9 @@ extension Issue11MainViewController {
         let vc = Issue11DDSViewController.instantiate()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction private func tapDragNDropStackViewButton() {
+        let vc = Issue11DragNDropViewController.instantiate()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
