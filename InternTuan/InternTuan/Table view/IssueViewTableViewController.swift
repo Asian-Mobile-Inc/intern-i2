@@ -27,7 +27,8 @@ class IssueViewTableViewController: UITableViewController {
         { Issue8ViewController.instantiate() },
         { Issue9ViewController.instantiate() },
         { Issue10ViewController.instantiate() },
-        { Issue11MainViewController.instantiate() }
+        { Issue11MainViewController.instantiate() },
+        { Issue12ViewController.instantiate() }
     ]
     
     override func viewDidLoad() {
