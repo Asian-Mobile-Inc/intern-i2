@@ -14,6 +14,10 @@ enum StringConstants {
         static let issue11DDScell = "Issue11DDSTableViewCell"
     }
     
+    enum collectionViewCell {
+        static let musicCell = "MusicCollectionViewCell"
+    }
+    
     enum header {
         static let header = "HeaderView"
     }
@@ -26,6 +30,8 @@ enum StringConstants {
         static let issue11DDSVC = "Issue11DDSViewController"
         static let issue11DragnDropVC = "Issue11DragNDropViewController"
         static let issue12VC = "Issue12ViewController"
+        static let issue13VC = "Issue13MainViewController"
+        static let issue13FlowLayoutVC = "Issue13FlowLayoutViewController"
     }
     enum notification {
         enum name {
