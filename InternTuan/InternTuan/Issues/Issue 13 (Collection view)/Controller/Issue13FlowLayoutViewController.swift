@@ -106,12 +106,17 @@ extension Issue13FlowLayoutViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
 //        logger.debug("did unhighlight \(indexPath.item)")
+        
         if let unhighlightIndexPath = selectedIndexPathToUnhighlight {
             if let cell = collectionView.cellForItem(at: unhighlightIndexPath) as? MusicCollectionViewCell {
                 cell.unHighlight()
             }
         }
-        self.selectedIndexPathToUnhighlight = selectedIndexPathToHighlight
+        if (selectedIndexPathToHighlight != selectedIndexPathToUnhighlight) {
+            self.selectedIndexPathToUnhighlight = selectedIndexPathToHighlight
+        } else {
+            self.selectedIndexPathToUnhighlight = nil
+        }
     }
 }
 
