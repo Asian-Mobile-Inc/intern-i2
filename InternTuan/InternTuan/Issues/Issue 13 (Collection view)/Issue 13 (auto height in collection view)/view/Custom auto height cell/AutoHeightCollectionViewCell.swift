@@ -10,10 +10,10 @@ import OSLog
 
 class AutoHeightCollectionViewCell: UICollectionViewCell {
 
-    let loger = Logger()
-    var indexPath: Int = 0
+    private let loger = Logger()
+    private var indexPath: Int = 0
     
-    @IBOutlet weak var textlabel: UILabel!
+    @IBOutlet private weak var textlabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +34,6 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
             break
         }
         self.backgroundColor = UIColor.lightGray
-//        self.layer.cornerRadius = 12
         
         if isSelectedItem {
             highlight(number: indexPath)
@@ -58,7 +57,6 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
             break
         }
         
-//        guard let text = textlabel.text else { return }
         let attributedString = NSAttributedString(
             string: text,
             attributes: [
@@ -87,7 +85,6 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
             break
         }
         
-//        guard let text = textlabel.text else { return }
         let attributedString = NSAttributedString(
             string: text,
             attributes: [
@@ -103,6 +100,5 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
 extension AutoHeightCollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
-//        loger.notice("did layout cell at: \(self.indexPath)")
     }
 }

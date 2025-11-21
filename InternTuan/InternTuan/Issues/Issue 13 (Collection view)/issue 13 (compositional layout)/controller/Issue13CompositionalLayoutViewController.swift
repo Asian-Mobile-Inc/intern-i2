@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Issue13CompositionalLayoutViewController: UIViewController {
+final class Issue13CompositionalLayoutViewController: UIViewController {
 
     private var items: [[Int]] = [[],[],[]]
     
@@ -20,11 +20,7 @@ class Issue13CompositionalLayoutViewController: UIViewController {
     }
     
     private func creatLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnviroment in
-            guard let self = self else {
-                return nil
-            }
-            
+        UICollectionViewCompositionalLayout { sectionIndex, layoutEnviroment in
             switch sectionIndex {
             case 0:
                 let itemSize = NSCollectionLayoutSize(
@@ -79,7 +75,6 @@ class Issue13CompositionalLayoutViewController: UIViewController {
                     heightDimension: .fractionalHeight(1.0 / 3.0)
                 )
                 let vItem = NSCollectionLayoutItem(layoutSize: vItemSize)
-    //            vItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
 
                 let leftColumnSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(leftColumnWidthFraction),
@@ -96,14 +91,12 @@ class Issue13CompositionalLayoutViewController: UIViewController {
                     heightDimension: .fractionalHeight(2.0 / 3.0)
                 )
                 let bigItem = NSCollectionLayoutItem(layoutSize: bigItemSize)
-    //            bigItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
 
                 let hItemSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(0.5),
                     heightDimension: .fractionalHeight(1.0)
                 )
                 let hItem = NSCollectionLayoutItem(layoutSize: hItemSize)
-    //            hItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
 
                 let bottomRightGroupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
@@ -122,22 +115,8 @@ class Issue13CompositionalLayoutViewController: UIViewController {
                 let rightColumn = NSCollectionLayoutGroup.vertical(
                     layoutSize: rightColumnSize,
                     subitems: [bigItem, bottomRightGroup]
-    //                subitems: [bottomRightGroup, bigItem]
                 )
 
-                // -----------------------------
-                // 6) final group: left + right
-                // -----------------------------
-    //            let finalGroupSize = NSCollectionLayoutSize(
-    //                widthDimension: .fractionalWidth(1.0),
-    //                heightDimension: .absolute(finalGroupHeight)
-    //            )
-    //            let finalGroup = NSCollectionLayoutGroup.horizontal(
-    //                layoutSize: finalGroupSize,
-    //                subitems: [leftColumn, rightColumn]
-    //                subitems: [rightColumn, leftColumn]
-    //            )
-                
                 let topFinalGroupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .fractionalHeight(1.0 / 2.0)
@@ -146,7 +125,6 @@ class Issue13CompositionalLayoutViewController: UIViewController {
                 let topFinalGroup = NSCollectionLayoutGroup.horizontal(
                     layoutSize: topFinalGroupSize,
                     subitems: [leftColumn, rightColumn]
-    //                subitems: [rightColumn, leftColumn]
                 )
                 
                 let botFinalGroupSize = NSCollectionLayoutSize(
@@ -156,7 +134,6 @@ class Issue13CompositionalLayoutViewController: UIViewController {
                 
                 let botFinalGroup = NSCollectionLayoutGroup.horizontal(
                     layoutSize: botFinalGroupSize,
-    //                subitems: [leftColumn, rightColumn]
                     subitems: [rightColumn, leftColumn]
                 )
                 let finalGroupSize = NSCollectionLayoutSize(
@@ -170,12 +147,7 @@ class Issue13CompositionalLayoutViewController: UIViewController {
                 )
 
                 let section = NSCollectionLayoutSection(group: finalGroup)
-    //            section.interGroupSpacing = 12
                 section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
-//                section.orthogonalScrollingBehavior = .continuousGroupLeadingBoundary
-//                section.orthogonalScrollingBehavior = .groupPaging
-//                section.orthogonalScrollingBehavior = .groupPagingCentered
-//                section.orthogonalScrollingBehavior = .paging
                 return section
             }
         }

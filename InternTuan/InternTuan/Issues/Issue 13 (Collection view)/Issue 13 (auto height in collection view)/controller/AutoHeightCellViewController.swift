@@ -8,9 +8,9 @@
 import UIKit
 import OSLog
 
-class AutoHeightCellViewController: UIViewController {
+final class AutoHeightCellViewController: UIViewController {
     
-    let logger = Logger()
+    private let logger = Logger()
 
     private let minimumLineSpacing: CGFloat = 10
     private let minimumInteritemSpacing: CGFloat = 10
@@ -31,11 +31,6 @@ class AutoHeightCellViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.setupCollectonView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        self.setupCollectonView()
     }
 
     static func instantiate() -> AutoHeightCellViewController {

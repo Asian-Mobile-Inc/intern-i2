@@ -8,29 +8,19 @@
 import UIKit
 import OSLog
 
-enum MultipleSelectMode {
-    case select
-    case deselect
-}
-
 protocol Issue13FLVCDelegate: AnyObject {
     func didTapHay(_ name: String)
 }
 
 final class Issue13FlowLayoutViewController: UIViewController {
 
+    private let logger = Logger()
     private var randomNums: [Int] = []
-    
-    var multipleSelectedItems: [IndexPath] = []
-    
-    let logger = Logger()
-    
-    private var multipleSelectMode: MultipleSelectMode = .select
-    
+    private var multipleSelectedItems: [IndexPath] = []
     private var musics: [Music] = []
     
-    var selectedIndexPathToHighlight: IndexPath?
-    var selectedIndexPathToUnhighlight: IndexPath?
+    private var selectedIndexPathToHighlight: IndexPath?
+    private var selectedIndexPathToUnhighlight: IndexPath?
     
     @IBOutlet private weak var hayLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -42,14 +32,6 @@ final class Issue13FlowLayoutViewController: UIViewController {
         setupCollectionView()
         seedMusics()
         collectionView.reloadData()
-    }
-
-    override func viewDidLayoutSubviews() {
-        if let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            
-            let width = (collectionView.bounds.size.width - 10) / 2
-            logger.debug("\(width)")
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,12 +61,6 @@ extension Issue13FlowLayoutViewController {
         self.collectionView.dragInteractionEnabled = true
         
         self.collectionView.allowsMultipleSelection = false
-        
-//        if let collectionViewFlowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-////            collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-////            collectionViewFlowLayout.estimatedItemSize = CGSize(width: 500, height: 100)
-////            collectionViewFlowLayout.estimatedItemSize = CGSize(width: /*fix*/, height: 1)
-//        }
     }
     
     private func seedMusics() {
@@ -146,24 +122,6 @@ extension Issue13FlowLayoutViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-////        if let cell = collectionView.cellForItem(at: indexPath) as? MusicCollectionViewCell {
-//            if (indexPath == selectedIndexPathToHighlight) {
-////                cell.unHighlight()
-//                if let indexPathToReload = selectedIndexPathToHighlight {
-//                    logger.debug("indexPathToReload: \(indexPathToReload)")
-//                    self.selectedIndexPathToHighlight = nil
-//                    collectionView.reloadItems(at: [indexPathToReload])
-//                }
-//            } else {
-////                cell.highlight()
-//                self.selectedIndexPathToHighlight = indexPath
-//                logger.debug("is in multiple selection mode: \(self.collectionView.allowsMultipleSelection)")
-//                logger.debug("indexPathToReload: \(indexPath)")
-//                collectionView.reloadItems(at: [indexPath])
-//            }
-////        }
-        
-        
         if (indexPath == selectedIndexPathToHighlight) {
             if (!collectionView.allowsMultipleSelection) {
                 if let indexPathToReload = self.selectedIndexPathToHighlight {
@@ -184,26 +142,6 @@ extension Issue13FlowLayoutViewController: UICollectionViewDelegate {
             self.selectedIndexPathToHighlight = indexPath
             self.collectionView.reloadItems(at: [indexPath])
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? MusicCollectionViewCell {
-//            cell.unHighlight()
-        }
-        collectionView.reloadItems(at: [indexPath])
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        true
-    }
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        
-    }
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
     }
     
     // context menu
@@ -252,9 +190,6 @@ extension Issue13FlowLayoutViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AutoHeightCollectionViewCell", for: indexPath) as! AutoHeightCollectionViewCell
-//        cell.render(self.randomNums[indexPath.item])
-//        return cell
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StringConstants.collectionViewCell.musicCell, for: indexPath) as! MusicCollectionViewCell
         logger.debug("\(cell)")
@@ -274,7 +209,6 @@ extension Issue13FlowLayoutViewController: UICollectionViewDataSource {
                 cell.render(music: musics[indexPath.item], isSelected: 0, width: width)
             }
         }
-//        cell.renderToTestAutoHeight(music: musics[indexPath.item], random: randomNums[indexPath.item])
         return cell
     }
 }
@@ -284,14 +218,15 @@ extension Issue13FlowLayoutViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.size.width - 50, height: 300)
     }
-    // KHÔNG trả size cố định nữa để self-sizing hoạt động.
-    // Giữ spacing/insets như cũ (được cell dùng để tính width 2 cột trong preferredLayoutAttributesFitting).
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         10
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         10
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
@@ -339,8 +274,3 @@ extension Issue13FlowLayoutViewController: UICollectionViewDropDelegate {
         }
     }
 }
-
-//MARK: mission
-//nghiên cứu compositional layout
-//nghiên cứu multiple selection
-

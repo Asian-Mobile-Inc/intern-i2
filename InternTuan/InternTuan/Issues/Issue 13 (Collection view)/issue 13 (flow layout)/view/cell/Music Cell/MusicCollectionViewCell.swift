@@ -10,9 +10,9 @@ import OSLog
 
 class MusicCollectionViewCell: UICollectionViewCell {
 
-    let logger = Logger()
+    private let logger = Logger()
     
-    var randomNumber: Int = 0
+    private var randomNumber: Int = 0
     
     @IBOutlet private weak var songName: UILabel!
     @IBOutlet private weak var songWriter: UILabel!
@@ -112,46 +112,3 @@ extension MusicCollectionViewCell {
         self.tapHay()
     }
 }
-
-//MARK: preferedLayoutAttributes
-//extension MusicCollectionViewCell {
-//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//        let attributes = super.preferredLayoutAttributesFitting(layoutAttributes)
-//        
-//        guard let collectionView = self.superview as? UICollectionView else {
-//            return attributes
-//        }
-//        
-//        let colums: CGFloat = 2
-//        var inset: UIEdgeInsets = .zero
-//        var spacing: CGFloat = 8
-//        
-//        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            inset = flowLayout.sectionInset
-//            spacing = flowLayout.minimumInteritemSpacing
-//        }
-//        
-//        let availableWidth = collectionView.bounds.width - inset.left - inset.right
-//        let totalSpacing = spacing * (colums - 1)
-//        let width = (availableWidth - totalSpacing) / colums
-//        
-//        attributes.size.width = width
-//        
-//        contentView.setNeedsLayout()
-//        contentView.layoutIfNeeded()
-//        
-//        let targetSize = CGSize(width: width, height: UIView.layoutFittingCompressedSize.height)
-//        let itemSize = contentView.systemLayoutSizeFitting(
-//            targetSize,
-//            withHorizontalFittingPriority: .required,
-//            verticalFittingPriority: .fittingSizeLevel)
-//        
-//        let height = itemSize.height
-//        
-//        logger.debug("height: \(height)")
-//        
-//        attributes.size.height = ceil(height)
-//        
-//        return attributes
-//    }
-//}
