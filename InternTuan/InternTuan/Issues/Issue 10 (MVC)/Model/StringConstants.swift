@@ -16,6 +16,7 @@ enum StringConstants {
     
     enum collectionViewCell {
         static let musicCell = "MusicCollectionViewCell"
+        static let autoHeightCell = "AutoHeightCollectionViewCell"
     }
     
     enum header {
@@ -32,6 +33,8 @@ enum StringConstants {
         static let issue12VC = "Issue12ViewController"
         static let issue13VC = "Issue13MainViewController"
         static let issue13FlowLayoutVC = "Issue13FlowLayoutViewController"
+        static let autoHeightCellVC = "AutoHeightCellViewController"
+        static let issue13CompositionalLayoutVC = "Issue13CompositionalLayoutViewController"
     }
     enum notification {
         enum name {

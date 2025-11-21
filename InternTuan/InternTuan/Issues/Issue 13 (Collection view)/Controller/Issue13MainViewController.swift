@@ -26,4 +26,14 @@ extension Issue13MainViewController {
         let vc = Issue13FlowLayoutViewController.instantiate()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction private func tapAutoHeightButton() {
+        let vc = AutoHeightCellViewController.instantiate()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction private func tapCompositionalButton() {
+        let vc = Issue13CompositionalLayoutViewController.instantiate()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

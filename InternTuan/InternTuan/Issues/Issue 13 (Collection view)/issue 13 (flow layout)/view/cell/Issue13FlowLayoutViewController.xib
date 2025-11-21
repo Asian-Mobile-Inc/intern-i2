@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="collectionView" destination="Fap-Uk-vQp" id="E9R-LT-Bdw"/>
                 <outlet property="hayLabel" destination="7iF-iv-lUf" id="Cy6-lu-mvo"/>
+                <outlet property="selectModeButton" destination="3Is-a1-v6a" id="tc0-UE-Bbw"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PPF-GU-vUc"/>
             </connections>
         </placeholder>
@@ -24,7 +25,7 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Fap-Uk-vQp">
                     <rect key="frame" x="16" y="179" width="361" height="605"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AVb-qD-Yba">
+                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AVb-qD-Yba">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -32,21 +33,31 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iF-iv-lUf">
-                    <rect key="frame" x="0.0" y="138" width="393" height="21"/>
+                    <rect key="frame" x="150" y="138" width="93" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Is-a1-v6a">
+                    <rect key="frame" x="307" y="129" width="70" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="select"/>
+                    <connections>
+                        <action selector="tapSelect" destination="-1" eventType="touchUpInside" id="vRA-CB-u7I"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="7iF-iv-lUf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="6Jf-U2-qWR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7iF-iv-lUf" secondAttribute="trailing" id="A3S-au-nt7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7iF-iv-lUf" secondAttribute="trailing" constant="150" id="A3S-au-nt7"/>
+                <constraint firstItem="3Is-a1-v6a" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="11" id="FnG-yL-ryW"/>
                 <constraint firstItem="Fap-Uk-vQp" firstAttribute="top" secondItem="7iF-iv-lUf" secondAttribute="bottom" constant="20" id="Qe6-dI-PDd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Is-a1-v6a" secondAttribute="trailing" constant="16" id="QjL-Be-Vda"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fap-Uk-vQp" secondAttribute="bottom" id="T0J-AV-nLY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fap-Uk-vQp" secondAttribute="trailing" constant="16" id="j6X-bs-HUO"/>
-                <constraint firstItem="7iF-iv-lUf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lLo-oK-Y9b"/>
+                <constraint firstItem="7iF-iv-lUf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="150" id="lLo-oK-Y9b"/>
                 <constraint firstItem="Fap-Uk-vQp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ypV-Sw-nt6"/>
             </constraints>
             <point key="canvasLocation" x="8" y="125"/>
