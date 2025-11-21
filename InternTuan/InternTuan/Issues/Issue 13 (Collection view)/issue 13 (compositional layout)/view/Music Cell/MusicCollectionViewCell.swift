@@ -21,16 +21,13 @@ class MusicCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var nameView: UIView!
     @IBOutlet private weak var writerView: UIView!
     
-    weak var Issue13FlowLayoutDlg: Issue13FLVCDelegate?
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
         self.randomNumber = Int.random(in: 1...2)
     }
     
-    public func render(music: Music, isSelected: Int = 0, width: CGFloat = 100) {
-        
+    public func render(music: Music, isSelected: Int = 0) {
         self.songName.text = music.name
         self.songWriter.text = music.writer
         self.dateRelease.text = music.dateRelease
@@ -38,12 +35,11 @@ class MusicCollectionViewCell: UICollectionViewCell {
         
         if isSelected == 0  {
             self.unHighlight()
-        } else if isSelected == 1{
+        } else if isSelected == 1 {
             self.hidden1line()
         } else {
             self.hidden2line()
         }
-        
     }
     
     public func renderToTestAutoHeight(music: Music, random: Int) {
@@ -55,13 +51,10 @@ class MusicCollectionViewCell: UICollectionViewCell {
         switch random {
         case 0:
             self.unHighlight()
-            break
         case 1:
             hidden1line()
-            break
         default:
             hidden2line()
-            break
         }
     }
 
@@ -75,14 +68,11 @@ class MusicCollectionViewCell: UICollectionViewCell {
     }
     
     public func highlight() {
-        
         switch randomNumber {
         case 1:
             hidden1line()
-            break
         default:
             hidden2line()
-            break
         }
         
         UIView.animate(withDuration: 0.1, animations: {
@@ -91,10 +81,8 @@ class MusicCollectionViewCell: UICollectionViewCell {
     }
     
     public func unHighlight() {
-        
         self.writerView.isHidden = false
         self.nameView.isHidden = false
-        
         self.layoutIfNeeded()
     }
 }
@@ -102,7 +90,6 @@ class MusicCollectionViewCell: UICollectionViewCell {
 //MARK: service
 extension MusicCollectionViewCell {
     public func tapHay() {
-        self.Issue13FlowLayoutDlg?.didTapHay(self.songName.text ?? "")
     }
 }
 
@@ -112,3 +99,4 @@ extension MusicCollectionViewCell {
         self.tapHay()
     }
 }
+

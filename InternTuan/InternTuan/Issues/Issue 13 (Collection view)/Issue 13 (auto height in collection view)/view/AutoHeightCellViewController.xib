@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AutoHeightCellViewController" customModule="InternTuan" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="JJZ-xc-c7v" id="Yro-cL-EyB"/>
+                <outlet property="selectModeButton" destination="VOr-ge-iFR" id="87b-4i-S6x"/>
                 <outlet property="view" destination="iN0-l3-epB" id="XpD-Z3-IXk"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JJZ-xc-c7v">
-                    <rect key="frame" x="16" y="118" width="361" height="666"/>
+                    <rect key="frame" x="16" y="168" width="361" height="616"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e4b-yg-npR">
                         <size key="itemSize" width="128" height="128"/>
@@ -30,14 +31,24 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOr-ge-iFR">
+                    <rect key="frame" x="305" y="118" width="72" height="39"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Select"/>
+                    <connections>
+                        <action selector="didTapSelecButton" destination="-1" eventType="touchUpInside" id="L4e-Ha-X8d"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="VOr-ge-iFR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9eJ-f4-GpK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="JJZ-xc-c7v" secondAttribute="trailing" constant="16" id="NVb-QY-lfJ"/>
-                <constraint firstItem="JJZ-xc-c7v" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="fXt-2J-hKp"/>
+                <constraint firstItem="JJZ-xc-c7v" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="fXt-2J-hKp"/>
                 <constraint firstItem="JJZ-xc-c7v" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="pV1-ae-iMZ"/>
                 <constraint firstItem="JJZ-xc-c7v" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="sbc-DR-OPh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VOr-ge-iFR" secondAttribute="trailing" constant="16" id="vgO-sh-CKE"/>
             </constraints>
             <point key="canvasLocation" x="113.74045801526717" y="86.619718309859152"/>
         </view>

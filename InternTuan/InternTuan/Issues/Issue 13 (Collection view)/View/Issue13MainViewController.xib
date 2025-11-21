@@ -22,24 +22,16 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="9ZC-5b-0Rg">
                     <rect key="frame" x="50" y="118" width="293" height="666"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDx-ER-fUS">
-                            <rect key="frame" x="0.0" y="0.0" width="293" height="198"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwy-ZL-hGR">
+                            <rect key="frame" x="0.0" y="0.0" width="293" height="315"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Flow Layout"/>
-                            <connections>
-                                <action selector="tapFlowLayout" destination="-1" eventType="touchUpInside" id="brP-Et-5nQ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwy-ZL-hGR">
-                            <rect key="frame" x="0.0" y="234" width="293" height="198"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="filled" title="Auto height"/>
                             <connections>
                                 <action selector="tapAutoHeightButton" destination="-1" eventType="touchUpInside" id="WX0-RJ-UOk"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRI-3B-4Eb">
-                            <rect key="frame" x="0.0" y="468" width="293" height="198"/>
+                            <rect key="frame" x="0.0" y="351" width="293" height="315"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Compositional Layout"/>
                             <connections>

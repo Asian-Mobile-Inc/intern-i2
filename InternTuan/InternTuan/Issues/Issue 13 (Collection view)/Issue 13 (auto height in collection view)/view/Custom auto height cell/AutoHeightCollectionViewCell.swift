@@ -24,21 +24,21 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
         
         switch number {
         case 1:
-            self.textlabel.text = "\(indexPath) | 1. The String type bridges with the The String type bridges with the The String type bridges"
+            self.textlabel.text = "1. The String type bridges with the The String type bridges with the The String type bridges"
             break
         case 2:
-            self.textlabel.text = "\(indexPath) | 2. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
+            self.textlabel.text = "2. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
             break
         default:
-            self.textlabel.text = "\(indexPath) | 3. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
+            self.textlabel.text = "3. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
             break
         }
         self.backgroundColor = UIColor.lightGray
         
         if isSelectedItem {
-            highlight(number: indexPath)
+            highlight(number: number)
         } else {
-            unHighlight(number: indexPath)
+            unHighlight(number: number)
         }
     }
     
@@ -47,13 +47,13 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
         
         switch number {
         case 1:
-            text = "\(indexPath) | . Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
+            text = "2. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
             break
         case 2:
-            text = "\(indexPath) | . Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
+            text = "3. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
             break
         default:
-            text = "\(indexPath) | . The String type bridges with the The String type bridges with the The String type bridges"
+            text = "1. The String type bridges with the The String type bridges with the The String type bridges"
             break
         }
         
@@ -75,13 +75,13 @@ class AutoHeightCollectionViewCell: UICollectionViewCell {
         
         switch number {
         case 1:
-            text = "\(indexPath) | 1. The String type bridges with the The String type bridges with the The String type bridges"
+            text = "1. The String type bridges with the The String type bridges with the The String type bridges"
             break
         case 2:
-            text = "\(indexPath) | 2. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
+            text = "2. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
             break
         default:
-            text = "\(indexPath) | 3. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
+            text = "3. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. Logging Error: Failed to initialize logging system due to time out. Log messages may be missing. If this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables. this issue persists, try setting IDEPreferLogStreaming=YES in the active scheme actions environment variables."
             break
         }
         

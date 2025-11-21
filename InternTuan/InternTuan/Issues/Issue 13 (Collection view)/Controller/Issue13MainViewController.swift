@@ -22,11 +22,6 @@ final class Issue13MainViewController: UIViewController {
 
 //MARK: IBAction
 extension Issue13MainViewController {
-    @IBAction private func tapFlowLayout() {
-        let vc = Issue13FlowLayoutViewController.instantiate()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     @IBAction private func tapAutoHeightButton() {
         let vc = AutoHeightCellViewController.instantiate()
         self.navigationController?.pushViewController(vc, animated: true)
