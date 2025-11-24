@@ -35,6 +35,10 @@ enum StringConstants {
         static let issue13FlowLayoutVC = "Issue13FlowLayoutViewController"
         static let autoHeightCellVC = "AutoHeightCellViewController"
         static let issue13CompositionalLayoutVC = "Issue13CompositionalLayoutViewController"
+        static let issue14MainVC = "Issue14MainViewController"
+        static let issue14TabbarController = "Issue14DefaultTabbarController"
+        static let issue14HomeViewController = "Issue14HomeViewConroller"
+        static let issue14SettingViewController = "Issue14SettingViewConroller"
     }
     enum notification {
         enum name {

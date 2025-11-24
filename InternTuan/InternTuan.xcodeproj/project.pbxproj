@@ -53,6 +53,7 @@
 		04CC1A452EC328BF00D5F12D /* Issue 13 (Collection view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 13 (Collection view)"; sourceTree = "<group>"; };
 		04D33C352EA62EF7004CF462 /* Issue 10 (MVC) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 10 (MVC)"; sourceTree = "<group>"; };
 		04D909992E8E7E0900DB410C /* Issue 9 (navigation) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 9 (navigation)"; sourceTree = "<group>"; };
+		04DAA26B2ED455A80059EF56 /* Issue 14 (Tabbar Controller) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 14 (Tabbar Controller)"; sourceTree = "<group>"; };
 		04F08DFB2EC1F306004DC3DE /* Issue 12 (custom cell) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 12 (custom cell)"; sourceTree = "<group>"; };
 		04F9F6642E813A5800FA232A /* Issue 6 (stack view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 6 (stack view)"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -175,6 +176,7 @@
 				04984DFE2EBB512A00DFA12E /* Issue11 (table view) */,
 				04F08DFB2EC1F306004DC3DE /* Issue 12 (custom cell) */,
 				04CC1A452EC328BF00D5F12D /* Issue 13 (Collection view) */,
+				04DAA26B2ED455A80059EF56 /* Issue 14 (Tabbar Controller) */,
 			);
 			path = Issues;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 				04CC1A452EC328BF00D5F12D /* Issue 13 (Collection view) */,
 				04D33C352EA62EF7004CF462 /* Issue 10 (MVC) */,
 				04D909992E8E7E0900DB410C /* Issue 9 (navigation) */,
+				04DAA26B2ED455A80059EF56 /* Issue 14 (Tabbar Controller) */,
 				04F08DFB2EC1F306004DC3DE /* Issue 12 (custom cell) */,
 				04F9F6642E813A5800FA232A /* Issue 6 (stack view) */,
 			);
