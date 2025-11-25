@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Issue14HomeViewConroller" customModule="InternTuan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Issue14ProfileViewController" customModule="InternTuan" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,8 +19,8 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNa-EE-iCA">
-                    <rect key="frame" x="152" y="404.66666666666669" width="89" height="43"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7F-Hd-Fh1">
+                    <rect key="frame" x="150.66666666666666" y="404.66666666666669" width="92" height="42.666666666666686"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -29,8 +29,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="WNa-EE-iCA" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="HVQ-YD-Kfc"/>
-                <constraint firstItem="WNa-EE-iCA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NAN-F6-bXZ"/>
+                <constraint firstItem="w7F-Hd-Fh1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="HYr-JX-KyN"/>
+                <constraint firstItem="w7F-Hd-Fh1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qmm-8I-Mcf"/>
             </constraints>
             <point key="canvasLocation" x="-27" y="96"/>
         </view>

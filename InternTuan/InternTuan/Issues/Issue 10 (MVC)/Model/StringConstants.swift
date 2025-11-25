@@ -37,8 +37,9 @@ enum StringConstants {
         static let issue13CompositionalLayoutVC = "Issue13CompositionalLayoutViewController"
         static let issue14MainVC = "Issue14MainViewController"
         static let issue14TabbarController = "Issue14DefaultTabbarController"
-        static let issue14HomeViewController = "Issue14HomeViewConroller"
-        static let issue14SettingViewController = "Issue14SettingViewConroller"
+        static let issue14HomeVC = "Issue14HomeViewConroller"
+        static let issue14SettingVC = "Issue14SettingViewConroller"
+        static let issue14ProfileVC = "Issue14ProfileViewController"
     }
     enum notification {
         enum name {
@@ -47,5 +48,9 @@ enum StringConstants {
         enum userInfo {
             static let students = "students"
         }
+    }
+    
+    enum customView {
+        static let customTabBar = "CustomTabbar"
     }
 }

@@ -17,7 +17,7 @@ class Issue14HomeViewConroller: UIViewController {
 
 
     static func instantiate() -> Issue14HomeViewConroller {
-        return Issue14HomeViewConroller(nibName: StringConstants.viewController.issue14HomeViewController, bundle: nil)
+        return Issue14HomeViewConroller(nibName: StringConstants.viewController.issue14HomeVC, bundle: nil)
     }
 
 }

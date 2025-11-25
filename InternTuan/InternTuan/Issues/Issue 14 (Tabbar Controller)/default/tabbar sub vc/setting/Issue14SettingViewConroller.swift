@@ -27,7 +27,7 @@ class Issue14SettingViewConroller: UIViewController {
     */
 
     static func instantiate() -> Issue14SettingViewConroller {
-        return Issue14SettingViewConroller(nibName: StringConstants.viewController.issue14SettingViewController, bundle: nil)
+        return Issue14SettingViewConroller(nibName: StringConstants.viewController.issue14SettingVC, bundle: nil)
     }
     
 }
