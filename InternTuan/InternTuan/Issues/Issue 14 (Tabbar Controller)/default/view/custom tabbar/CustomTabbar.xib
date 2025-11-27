@@ -52,7 +52,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4e3-sd-Tbi" userLabel="profile view">
                             <rect key="frame" x="131" y="0.0" width="131" height="75"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-ho-iSO">
+                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-ho-iSO">
                                     <rect key="frame" x="10" y="10" width="111" height="55"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b4g-Ym-jtr">
@@ -115,7 +115,7 @@
                         </view>
                     </subviews>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDo-tv-Myg">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDo-tv-Myg">
                     <rect key="frame" x="0.0" y="0.0" width="131" height="5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -123,7 +123,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemGray2Color"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="kJu-8h-cpG" secondAttribute="trailing" id="DuQ-Rp-sR6"/>
                 <constraint firstItem="gDo-tv-Myg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KJs-uX-LnP"/>
@@ -155,9 +154,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

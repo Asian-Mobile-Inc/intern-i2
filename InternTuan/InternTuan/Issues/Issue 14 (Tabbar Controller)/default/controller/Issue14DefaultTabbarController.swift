@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Foundation
 
 class Issue14DefaultTabbarController: UITabBarController {
 
     let centerButton = UIButton()
     var customTabbar: CustomTabbar = CustomTabbar()
+    
+    var customBatchTabBar = UIView()
     
     var homeButton = UIButton()
     var profileButton = UIButton()
@@ -24,17 +27,33 @@ class Issue14DefaultTabbarController: UITabBarController {
         self.setupTabbar()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        // Đảm bảo button được add và layout sau khi tabBar đã có kích thước cuối
-//        setupCenterButtonIfNeeded()
-//        layoutCenterButton()
-        
-        setupCustomTabBar()
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        self.highlightItem(index: 0)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.didAddCenterButton = false
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.didAddCenterButton = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        layoutCenterButton()
+        if (self.didAddCenterButton) {
+            return
+        }
+        self.setupCustomTabbarView()
+        setupBatchCustomTabBar(tabBarColor: UIColor.lightGray.cgColor)
+        self.setupCustomTabBarToBatchTabbar()
+        setupCenterButtonIfNeeded()
+//        setupCustomTabBar()
+//        self.customBatchTabBar.bringSubviewToFront(customTabbar)
+        self.customBatchTabBar.bringSubviewToFront(centerButton)
     }
     
     static func instantiate() -> Issue14DefaultTabbarController {
@@ -45,43 +64,56 @@ class Issue14DefaultTabbarController: UITabBarController {
 
 //MARK: setup
 extension Issue14DefaultTabbarController {
+    private func setupCustomTabbarView() {
+        self.view.addSubview(customBatchTabBar)
+        self.customBatchTabBar.frame = self.tabBar.frame
+    }
+    
     private func setupTabbar() {
         let homeVc = Issue14HomeViewConroller.instantiate()
         let homeNav = UINavigationController(rootViewController: homeVc)
-        homeNav.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
+//        homeNav.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
         
         let settingVc = Issue14SettingViewConroller.instantiate()
         let settingNav = UINavigationController(rootViewController: settingVc)
-        let quaDauImg = UIImage(named: "quaDau")?
-            .preparingThumbnail(of: CGSize(width: 30, height: 30))
-        settingNav.tabBarItem = UITabBarItem(
-            title: "",
-            image: quaDauImg?.withRenderingMode(.alwaysOriginal),
-            tag: 2)
+//        let quaDauImg = UIImage(named: "quaDau")?
+//            .preparingThumbnail(of: CGSize(width: 30, height: 30))
+//        settingNav.tabBarItem = UITabBarItem(
+//            title: "",
+//            image: quaDauImg?.withRenderingMode(.alwaysOriginal),
+//            tag: 2)
         
         let profileVc = Issue14ProfileViewController.instantiate()
         let profileNav = UINavigationController(rootViewController: profileVc)
-        let img = UIImage(named: "anhThanh")?
-            .preparingThumbnail(of: CGSize(width: 30, height: 30))
+//        let img = UIImage(named: "anhThanh")?
+//            .preparingThumbnail(of: CGSize(width: 30, height: 30))
 
-        let imgSelected = UIImage(named: "oc")?
-            .preparingThumbnail(of: CGSize(width: 30, height: 30))
+//        let imgSelected = UIImage(named: "oc")?
+//            .preparingThumbnail(of: CGSize(width: 30, height: 30))
 
-        profileNav.tabBarItem = UITabBarItem(
-            title: "setting",
-            image: img?.withRenderingMode(.alwaysOriginal),
-            selectedImage: imgSelected?.withRenderingMode(.alwaysOriginal)
-        )
+//        profileNav.tabBarItem = UITabBarItem(
+//            title: "setting",
+//            image: img?.withRenderingMode(.alwaysOriginal),
+//            selectedImage: imgSelected?.withRenderingMode(.alwaysOriginal)
+//        )
         
-        if let bgImage = UIImage(named: "quaDau") {
-            let bgrImg = bgImage.withRenderingMode(.alwaysOriginal)
-            self.tabBar.backgroundImage = bgrImg
-        }
+//        if let bgImage = UIImage(named: "quaDau") {
+//            let bgrImg = bgImage.withRenderingMode(.alwaysOriginal)
+//            self.tabBar.backgroundImage = bgrImg
+//        }
         
         self.delegate = self
         self.viewControllers = [homeNav, profileNav, settingNav]
         
-        self.tabBar.backgroundColor = .lightGray
+//        self.tabBar.backgroundColor = .clear
+//        self.tabBar.isHidden = true
+        
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
+        tabBar.isTranslucent = true
+        tabBar.backgroundColor = .clear
+        
+        
     }
 }
 
@@ -93,7 +125,7 @@ extension Issue14DefaultTabbarController: UITabBarControllerDelegate {
     private func setupCenterButtonIfNeeded() {
         guard !didAddCenterButton else { return }
         
-        let buttonSize: CGFloat = 60
+        let buttonSize: CGFloat = 80
         centerButton.frame = CGRect(
             x: (tabBar.frame.width - buttonSize) / 2,
             y: tabBar.frame.minY-20,
@@ -128,9 +160,7 @@ extension Issue14DefaultTabbarController: UITabBarControllerDelegate {
     }
 
     @objc func centerButtonTapped() {
-        if let viewControllers = self.viewControllers, viewControllers.count > 1 {
-            self.selectedViewController = viewControllers[1]
-        }
+        self.highlightItem(index: 1)
         print("Center button tapped!")
     }
 }
@@ -178,11 +208,127 @@ extension Issue14DefaultTabbarController {
         }
     }
     
+    private func setupCustomTabBarToBatchTabbar() {
+        if (!didAddCenterButton) {
+            let nib = UINib(nibName: StringConstants.customView.customTabBar, bundle: nil)
+            let customTabbar = nib.instantiate(withOwner: self, options: nil).first as! CustomTabbar
+            self.customTabbar = customTabbar
+            self.customBatchTabBar.addSubview(customTabbar)
+            let customTabbarFrame = self.customBatchTabBar.bounds
+            self.customTabbar.frame = customTabbarFrame
+            customBatchTabBar.bringSubviewToFront(customTabbar)
+            
+            self.customBatchTabBar.addSubview(homeButton)
+            self.homeButton.frame = self.customTabbar.frameOfItemAtIndex(index: 0)
+            self.homeButton.addTarget(self, action: #selector(didTapHome), for: .touchUpInside)
+            self.customBatchTabBar.addSubview(profileButton)
+            self.profileButton.frame = self.customTabbar.frameOfItemAtIndex(index: 1)
+//            self.profileButton.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
+            self.customBatchTabBar.addSubview(settingButton)
+            self.settingButton.frame = self.customTabbar.frameOfItemAtIndex(index: 2)
+            self.settingButton.addTarget(self, action: #selector(didTapSetting), for: .touchUpInside)
+            
+            self.didAddCustomTabbar = true
+            self.customTabbar.render()
+            self.highlightItem(index: 0)
+        }
+    }
+    
     private func highlightItem(index: Int) {
         if let viewControllers = self.viewControllers, viewControllers.count > index {
             self.selectedViewController = viewControllers[index]
             debugPrint(viewControllers)
         }
         self.customTabbar.pHighLightItemAtIndex(index: index)
+    }
+}
+
+extension Issue14DefaultTabbarController {
+    private func setupBatchCustomTabBar(tabBarColor: CGColor) {
+        
+        if (didAddCenterButton) {
+            return
+        }
+        
+        let path = self.getPathForTabBar(width: Int(self.tabBar.frame.width), height: Int(self.tabBar.frame.height))
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        shape.lineWidth = 0
+        shape.strokeColor = tabBarColor
+        shape.fillColor = tabBarColor
+        customBatchTabBar.layer.addSublayer(shape)
+    }
+    
+    private func getPathForTabBar(width: Int, height: Int) -> UIBezierPath {
+        let pathSize = CGSize(width: width, height: height)
+        
+        let graphicHeight = pathSize.height * 0.5
+        let graphicWidth = pathSize.width / 3
+        
+        let startPointGraphic = CGPoint(
+            x: 0,
+            y: 0)
+        
+        let path = UIBezierPath()
+        path.move(to: startPointGraphic)
+        let starPointGraphic1 = CGPoint(
+            x: pathSize.width / 6,
+            y: startPointGraphic.y)
+        path.addLine(to: CGPoint(
+            x: pathSize.width / 6,
+            y: startPointGraphic.y))
+        
+//        let starPointGraphic1 = CGPoint(x: 150, y: 50)
+        
+        let graphic1P2 = CGPoint(
+            x: starPointGraphic1.x + graphicWidth,
+            y: starPointGraphic1.y + graphicHeight)
+        let graphic1S1 = CGPoint(
+            x: starPointGraphic1.x + 0.675 * graphicWidth,
+            y: starPointGraphic1.y)
+        let graphic1S2 = CGPoint(
+            x: starPointGraphic1.x + 0.55 * graphicWidth,
+//            y: starPointGraphic1.y + 0.7 * graphicHeight)
+            y: starPointGraphic1.y + graphicHeight)
+        
+        
+//        let starPointGraphic2 = graphic1P2
+        
+        let starPointGraphic2 = CGPoint(
+            x: graphic1P2.x,
+            y: graphic1P2.y)
+        
+        let graphic2P2 = CGPoint(
+            x: starPointGraphic2.x + graphicWidth,
+            y: starPointGraphic2.y - graphicHeight)
+        let graphic2S1 = CGPoint(
+            x: starPointGraphic2.x + 0.45 * graphicWidth,
+//            y: starPointGraphic2.y - 0.3 * graphicHeight)
+            y: starPointGraphic2.y)
+        let graphic2S2 = CGPoint(
+            x: starPointGraphic2.x + 0.35 * graphicWidth,
+            y: starPointGraphic2.y - graphicHeight)
+        
+        path.addCurve(
+            to: graphic1P2,
+            controlPoint1: graphic1S1,
+            controlPoint2: graphic1S2)
+        
+        path.addCurve(
+            to: graphic2P2,
+            controlPoint1: graphic2S1,
+            controlPoint2: graphic2S2)
+        
+        path.addLine(to: CGPoint(
+            x: graphic2P2.x + pathSize.width / 6,
+            y: graphic2P2.y))
+        
+        path.addLine(to: CGPoint(
+            x: graphic2P2.x + pathSize.width / 6,
+            y: pathSize.height))
+        
+        path.addLine(to: CGPoint(x: startPointGraphic.x, y: startPointGraphic.y + pathSize.height))
+        path.close()
+        return path
     }
 }

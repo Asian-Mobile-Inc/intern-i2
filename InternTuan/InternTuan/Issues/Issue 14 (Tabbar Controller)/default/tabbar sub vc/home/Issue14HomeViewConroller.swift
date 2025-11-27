@@ -20,4 +20,7 @@ class Issue14HomeViewConroller: UIViewController {
         return Issue14HomeViewConroller(nibName: StringConstants.viewController.issue14HomeVC, bundle: nil)
     }
 
+    @IBAction func tapButton(_ sender: Any) {
+        debugPrint("did tap button")
+    }
 }

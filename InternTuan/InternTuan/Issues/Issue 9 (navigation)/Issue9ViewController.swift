@@ -16,11 +16,25 @@ class Issue9ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Issue 9"
+        // Giới hạn phạm vi trình bày của UISearchController vào VC này
+        definesPresentationContext = true
         self.setupNavBar()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         debugPrint("search bar is active: \(searchController.isActive)")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        debugPrint("view did disappear")
+    }
+    
+    // Đảm bảo khi rời màn thì search/toolbar không rò rỉ sang VC sau
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.isActive = false
+        view.endEditing(true)
+        navigationController?.isToolbarHidden = true
     }
     
     static func instantiate() -> Issue9ViewController {
@@ -29,22 +43,6 @@ class Issue9ViewController: UIViewController {
     
     private func setupNavBar() {
         let appearance = UINavigationBarAppearance()
-//        appearance.backgroundColor = .blue
-//        appearance.backgroundColor = UIColor(white: 0, alpha: 0.5)
-//        appearance.configureWithOpaqueBackground()
-//        appearance.configureWithDefaultBackground()
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = UIColor(white: 0, alpha: 0.5)
-//        appearance.backgroundImage = UIImage(named: "quaDau")
-//        appearance.shadowColor = .green
-//
-//        appearance.shadowImage = UIImage(named: "line")
-//        appearance.setBackIndicatorImage(UIImage(named: "red"), transitionMaskImage: UIImage(named: "red"))
-//
-//        appearance.titleTextAttributes
-//
-//        let image = UIImage(systemName: "arrow.backward")?.withRenderingMode(.alwaysOriginal)
-//        appearance.setBackIndicatorImage(image, transitionMaskImage: image)
         
         appearance.titleTextAttributes = [.foregroundColor: UIColor.black]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -129,3 +127,4 @@ extension Issue9ViewController: UISearchResultsUpdating {
 extension Issue9ViewController: UISearchBarDelegate {
     
 }
+
