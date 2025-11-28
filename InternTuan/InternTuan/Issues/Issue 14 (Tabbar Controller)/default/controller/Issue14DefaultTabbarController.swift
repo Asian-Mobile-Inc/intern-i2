@@ -26,24 +26,9 @@ class Issue14DefaultTabbarController: UITabBarController {
         super.viewDidLoad()
         self.setupTabbar()
     }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.didAddCenterButton = false
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.didAddCenterButton = false
-    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        layoutCenterButton()
         if (self.didAddCenterButton) {
             return
         }
@@ -51,8 +36,6 @@ class Issue14DefaultTabbarController: UITabBarController {
         setupBatchCustomTabBar(tabBarColor: UIColor.lightGray.cgColor)
         self.setupCustomTabBarToBatchTabbar()
         setupCenterButtonIfNeeded()
-//        setupCustomTabBar()
-//        self.customBatchTabBar.bringSubviewToFront(customTabbar)
         self.customBatchTabBar.bringSubviewToFront(centerButton)
     }
     
@@ -125,7 +108,7 @@ extension Issue14DefaultTabbarController: UITabBarControllerDelegate {
     private func setupCenterButtonIfNeeded() {
         guard !didAddCenterButton else { return }
         
-        let buttonSize: CGFloat = 80
+        let buttonSize: CGFloat = tabBar.frame.size.height
         centerButton.frame = CGRect(
             x: (tabBar.frame.width - buttonSize) / 2,
             y: tabBar.frame.minY-20,
@@ -223,7 +206,6 @@ extension Issue14DefaultTabbarController {
             self.homeButton.addTarget(self, action: #selector(didTapHome), for: .touchUpInside)
             self.customBatchTabBar.addSubview(profileButton)
             self.profileButton.frame = self.customTabbar.frameOfItemAtIndex(index: 1)
-//            self.profileButton.addTarget(self, action: #selector(didTapProfile), for: .touchUpInside)
             self.customBatchTabBar.addSubview(settingButton)
             self.settingButton.frame = self.customTabbar.frameOfItemAtIndex(index: 2)
             self.settingButton.addTarget(self, action: #selector(didTapSetting), for: .touchUpInside)
@@ -278,8 +260,6 @@ extension Issue14DefaultTabbarController {
             x: pathSize.width / 6,
             y: startPointGraphic.y))
         
-//        let starPointGraphic1 = CGPoint(x: 150, y: 50)
-        
         let graphic1P2 = CGPoint(
             x: starPointGraphic1.x + graphicWidth,
             y: starPointGraphic1.y + graphicHeight)
@@ -288,11 +268,7 @@ extension Issue14DefaultTabbarController {
             y: starPointGraphic1.y)
         let graphic1S2 = CGPoint(
             x: starPointGraphic1.x + 0.55 * graphicWidth,
-//            y: starPointGraphic1.y + 0.7 * graphicHeight)
             y: starPointGraphic1.y + graphicHeight)
-        
-        
-//        let starPointGraphic2 = graphic1P2
         
         let starPointGraphic2 = CGPoint(
             x: graphic1P2.x,
@@ -303,7 +279,6 @@ extension Issue14DefaultTabbarController {
             y: starPointGraphic2.y - graphicHeight)
         let graphic2S1 = CGPoint(
             x: starPointGraphic2.x + 0.45 * graphicWidth,
-//            y: starPointGraphic2.y - 0.3 * graphicHeight)
             y: starPointGraphic2.y)
         let graphic2S2 = CGPoint(
             x: starPointGraphic2.x + 0.35 * graphicWidth,
