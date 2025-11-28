@@ -7,12 +7,11 @@
 
 import UIKit
 
-class Issue14ProfileViewController: UIViewController {
+final class Issue14ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
     static func instantiate() -> Issue14ProfileViewController {

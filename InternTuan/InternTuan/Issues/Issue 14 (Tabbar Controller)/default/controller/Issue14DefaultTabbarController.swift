@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class Issue14DefaultTabbarController: UITabBarController {
+final class Issue14DefaultTabbarController: UITabBarController {
 
     let centerButton = UIButton()
     var customTabbar: CustomTabbar = CustomTabbar()
@@ -55,48 +55,20 @@ extension Issue14DefaultTabbarController {
     private func setupTabbar() {
         let homeVc = Issue14HomeViewConroller.instantiate()
         let homeNav = UINavigationController(rootViewController: homeVc)
-//        homeNav.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
         
         let settingVc = Issue14SettingViewConroller.instantiate()
         let settingNav = UINavigationController(rootViewController: settingVc)
-//        let quaDauImg = UIImage(named: "quaDau")?
-//            .preparingThumbnail(of: CGSize(width: 30, height: 30))
-//        settingNav.tabBarItem = UITabBarItem(
-//            title: "",
-//            image: quaDauImg?.withRenderingMode(.alwaysOriginal),
-//            tag: 2)
         
         let profileVc = Issue14ProfileViewController.instantiate()
         let profileNav = UINavigationController(rootViewController: profileVc)
-//        let img = UIImage(named: "anhThanh")?
-//            .preparingThumbnail(of: CGSize(width: 30, height: 30))
 
-//        let imgSelected = UIImage(named: "oc")?
-//            .preparingThumbnail(of: CGSize(width: 30, height: 30))
-
-//        profileNav.tabBarItem = UITabBarItem(
-//            title: "setting",
-//            image: img?.withRenderingMode(.alwaysOriginal),
-//            selectedImage: imgSelected?.withRenderingMode(.alwaysOriginal)
-//        )
-        
-//        if let bgImage = UIImage(named: "quaDau") {
-//            let bgrImg = bgImage.withRenderingMode(.alwaysOriginal)
-//            self.tabBar.backgroundImage = bgrImg
-//        }
-        
         self.delegate = self
         self.viewControllers = [homeNav, profileNav, settingNav]
-        
-//        self.tabBar.backgroundColor = .clear
-//        self.tabBar.isHidden = true
         
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
         tabBar.isTranslucent = true
         tabBar.backgroundColor = .clear
-        
-        
     }
 }
 
@@ -106,7 +78,9 @@ extension Issue14DefaultTabbarController: UITabBarControllerDelegate {
     }
     
     private func setupCenterButtonIfNeeded() {
-        guard !didAddCenterButton else { return }
+        guard !didAddCenterButton else {
+            return
+        }
         
         let buttonSize: CGFloat = tabBar.frame.size.height
         centerButton.frame = CGRect(

@@ -7,12 +7,11 @@
 
 import UIKit
 
-class Issue14HomeViewConroller: UIViewController {
+final class Issue14HomeViewConroller: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
 

@@ -16,7 +16,6 @@ class Issue9ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Issue 9"
-        // Giới hạn phạm vi trình bày của UISearchController vào VC này
         definesPresentationContext = true
         self.setupNavBar()
     }
@@ -29,7 +28,6 @@ class Issue9ViewController: UIViewController {
         debugPrint("view did disappear")
     }
     
-    // Đảm bảo khi rời màn thì search/toolbar không rò rỉ sang VC sau
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         searchController.isActive = false
