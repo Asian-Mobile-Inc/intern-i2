@@ -40,6 +40,7 @@ enum StringConstants {
         static let issue14HomeVC = "Issue14HomeViewConroller"
         static let issue14SettingVC = "Issue14SettingViewConroller"
         static let issue14ProfileVC = "Issue14ProfileViewController"
+        static let issue15MainVC = "Issue15MainViewController"
     }
     enum notification {
         enum name {
