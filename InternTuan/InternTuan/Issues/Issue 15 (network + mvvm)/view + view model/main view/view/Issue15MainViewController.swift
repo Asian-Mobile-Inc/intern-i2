@@ -21,7 +21,7 @@ class Issue15MainViewController: UIViewController {
         self.setupViewModel()
         self.setupTableView()
     }
-
+    
     static func instantiate() -> Issue15MainViewController {
         return Issue15MainViewController(nibName: StringConstants.viewController.issue15MainVC, bundle: nil)
     }
@@ -35,7 +35,6 @@ extension Issue15MainViewController {
             .sink { [weak self] songs in
                 guard let self = self else { return }
                 self.songs = songs
-                debugPrint("did update songs count: \(songs.count)")
                 self.tableView.reloadData()
             }
             .store(in: &cancellables)
@@ -64,7 +63,7 @@ extension Issue15MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
         let song = songs[indexPath.row]
         cell.textLabel?.text = song.title
         return cell
