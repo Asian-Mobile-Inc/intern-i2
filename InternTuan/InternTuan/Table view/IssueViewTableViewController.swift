@@ -31,7 +31,11 @@ class IssueViewTableViewController: UITableViewController {
         { Issue12ViewController.instantiate() },
         { Issue13MainViewController.instantiate() },
         { Issue14MainViewController.instantiate() },
-        { Issue15MainViewController.instantiate() }
+        {
+            let repository = UserRepository()
+            let viewModel = Issue15MainViewModel(repository: repository)
+            return Issue15MainViewController.instantiate(viewModel: viewModel)
+        }
     ]
     
     override func viewDidLoad() {

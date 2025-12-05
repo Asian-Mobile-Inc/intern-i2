@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class APIService {
     
@@ -16,8 +17,8 @@ final class APIService {
     
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
-        config.timeoutIntervalForRequest = 30 //giải thích thêm
-        config.timeoutIntervalForResource = 60 //giải thích thêm
+        config.timeoutIntervalForRequest = 30 //time out để nhận phản hồi
+        config.timeoutIntervalForResource = 60 //time out cả quá trình (kể cả decode)
         return URLSession(configuration: config)
     }()
 }
@@ -63,5 +64,45 @@ extension APIService {
         } catch {
             throw APIError.unknownError
         }
+    }
+    
+    func requestPublisher<T: Decodable> (target: APITarget) -> AnyPublisher<Result<T, APIError>, Never> {
+        let request: URLRequest
+        
+        do {
+            request = try target.asURLRequest()
+        } catch let error {
+            if let apiError = error as? APIError {
+                return Just(.failure(apiError)).eraseToAnyPublisher()
+            }
+            return Just(.failure(APIError.unknownError)).eraseToAnyPublisher()
+        }
+        
+        return session.dataTaskPublisher(for: request)
+            .mapError { APIError.urlError($0) }
+            .tryMap { output -> Data in
+                if let response = output.response as? HTTPURLResponse, !(200..<300).contains(response.statusCode) {
+                    throw APIError.httpError(status: response.statusCode, data: output.data)
+                }
+                return output.data
+            }
+            .mapError{ error in
+                if let apiError = error as? APIError {
+                    return apiError
+                }
+                return APIError.unknownError
+            }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .map { decoderValue in
+                Result<T, APIError>.success(decoderValue)
+                
+            }
+            .catch { error -> Just<Result<T, APIError>> in
+                if let apiError = error as? APIError {
+                    return Just(.failure(apiError))
+                }
+                return Just(.failure(APIError.unknownError))
+            }
+            .eraseToAnyPublisher()
     }
 }

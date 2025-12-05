@@ -7,38 +7,75 @@
 
 import Foundation
 import Combine
+import OSLog
 
-class Issue15MainViewModel {
+final class Issue15MainViewModel {
+    let logger = Logger()
     
-    @Published var songs: [Song] = []
+    @Published private(set) var users: [User] = []
+    @Published private(set) var isLoading: Bool = false
+    @Published private(set) var error: APIError? = nil
+    
+    var cancellable = Set<AnyCancellable>()
     
     let dataManager = DataManager.shared()
     
+    let repository: UserRepositoryType
+    
+    init(repository: UserRepositoryType) {
+        self.repository = repository
+    }
+}
+
+//MARK: API
+extension Issue15MainViewModel {
     public func fetchData() {
-        Task {
-            do {
-                // Gọi API /users
-                let users: [User] = try await APIService.shared.request(target: UserAPI.getAll)
-                
-                // Map User -> Song để khớp UI
-                let mappedSongs: [Song] = users.map { user in
-                    Song(
-                        title: user.name,
-                        artist: user.username,
-                        duration: "3:45",                // dữ liệu demo
-                        album: user.email                // hiển thị đại diện
-                    )
+        self.isLoading = true
+        
+        repository.fetchUser()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else {
+                    return
                 }
                 
-                await MainActor.run {
-                    self.songs = mappedSongs
+                self.isLoading = false
+                
+                switch result {
+                case .success(let users):
+                    self.users = users
+                    break
+                case .failure(let error):
+                    logger.error("\(error)")
+                    self.error = error
+                    break
                 }
-            } catch {
-                await MainActor.run {
-                    self.songs = []
-                }
-                debugPrint("Fetch songs failed: \(error)")
             }
-        }
+            .store(in: &cancellable)
+    }
+
+    func getUserById(id: String) {
+        self.isLoading = true
+        
+        repository.getUserById(id: id)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] result in
+                guard let self = self else {
+                    return
+                }
+                
+                self.isLoading = false
+                
+                switch result {
+                case .success(let user):
+                    self.users = [user]
+                    break
+                case .failure(let error):
+                    logger.error("\(error)")
+                    self.error = error
+                    break
+                }
+            }
+            .store(in: &cancellable)
     }
 }

@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Issue15MainViewController" customModule="InternTuan" customModuleProvider="target">
             <connections>
+                <outlet property="fetchDataButton" destination="isD-c3-xav" id="yJv-qD-jLz"/>
+                <outlet property="label" destination="E9f-jD-g3t" id="GmU-pi-eVb"/>
                 <outlet property="tableView" destination="KN8-3j-0ed" id="LBs-EY-3oU"/>
+                <outlet property="textField" destination="eBp-mF-MAI" id="hwQ-0f-sey"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ggq-F6-R60"/>
             </connections>
         </placeholder>
@@ -25,23 +28,46 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isD-c3-xav">
-                    <rect key="frame" x="272" y="118" width="105" height="39"/>
+                    <rect key="frame" x="272" y="117.99999999999999" width="105" height="38.333333333333329"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="filled" title="Fetch data"/>
                     <connections>
                         <action selector="didTapFetchDataButton:" destination="-1" eventType="touchUpInside" id="ZHU-H5-ic4"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBp-mF-MAI">
+                    <rect key="frame" x="16" y="120.33333333333331" width="240" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="73n-I1-Xv1">
+                    <rect key="frame" x="16" y="175.33333333333334" width="361" height="20.333333333333343"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9f-jD-g3t">
+                            <rect key="frame" x="160" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemGray3Color"/>
             <constraints>
+                <constraint firstItem="eBp-mF-MAI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="0tX-Bc-Dde"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="73n-I1-Xv1" secondAttribute="trailing" constant="16" id="1RL-FR-vBV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="isD-c3-xav" secondAttribute="trailing" constant="16" id="3xg-od-uFo"/>
+                <constraint firstItem="73n-I1-Xv1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="49r-Kb-ROB"/>
+                <constraint firstItem="73n-I1-Xv1" firstAttribute="top" secondItem="eBp-mF-MAI" secondAttribute="bottom" constant="21" id="BFS-eP-2FX"/>
                 <constraint firstItem="KN8-3j-0ed" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="CRp-QD-uwy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KN8-3j-0ed" secondAttribute="trailing" constant="16" id="SA6-xo-GbS"/>
+                <constraint firstItem="73n-I1-Xv1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="V1X-zL-Kv2"/>
                 <constraint firstItem="isD-c3-xav" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="WJk-8N-vMt"/>
                 <constraint firstItem="KN8-3j-0ed" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="WPg-lj-pMh"/>
                 <constraint firstItem="KN8-3j-0ed" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="Y3k-eG-9Eh"/>
+                <constraint firstItem="eBp-mF-MAI" firstAttribute="centerY" secondItem="isD-c3-xav" secondAttribute="centerY" id="eAH-t6-Fua"/>
+                <constraint firstItem="isD-c3-xav" firstAttribute="leading" secondItem="eBp-mF-MAI" secondAttribute="trailing" constant="16" id="syV-fP-8yp"/>
             </constraints>
             <point key="canvasLocation" x="-95.419847328244273" y="91.549295774647888"/>
         </view>
@@ -49,6 +75,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
