@@ -10,7 +10,6 @@ import Combine
 
 final class Issue15MainViewController: UIViewController {
 
-    private var songs: [Song] = []
     private var users: [User] = []
     private let viewModel: Issue15MainViewModel
     private var cancellables = Set<AnyCancellable>()

@@ -18,8 +18,6 @@ final class Issue15MainViewModel {
     
     var cancellable = Set<AnyCancellable>()
     
-    let dataManager = DataManager.shared()
-    
     let repository: UserRepositoryType
     
     init(repository: UserRepositoryType) {
