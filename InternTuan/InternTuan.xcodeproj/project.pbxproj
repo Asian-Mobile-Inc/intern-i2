@@ -50,6 +50,7 @@
 		042720DF2E851FDB00928BF7 /* Issue 7 (Delegation pattern) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 7 (Delegation pattern)"; sourceTree = "<group>"; };
 		043C73B12E8CDAE9002C1C31 /* Issue 8 (VC life cycle) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 8 (VC life cycle)"; sourceTree = "<group>"; };
 		04712AA32ED9581C00F590A3 /* Issue 15 (network + mvvm) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 15 (network + mvvm)"; sourceTree = "<group>"; };
+		047AB39C2EE8126800C1EE18 /* issue 16 (custom markup) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "issue 16 (custom markup)"; sourceTree = "<group>"; };
 		04984DFE2EBB512A00DFA12E /* Issue11 (table view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue11 (table view)"; sourceTree = "<group>"; };
 		04CC1A452EC328BF00D5F12D /* Issue 13 (Collection view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 13 (Collection view)"; sourceTree = "<group>"; };
 		04D33C352EA62EF7004CF462 /* Issue 10 (MVC) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 10 (MVC)"; sourceTree = "<group>"; };
@@ -165,6 +166,7 @@
 		72CA3F272E77AC5500375371 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				047AB39C2EE8126800C1EE18 /* issue 16 (custom markup) */,
 				72B7B99A2E794BCD00A7FC45 /* Issue 1 (View) n 2 (touch) */,
 				72B7B99B2E794BF000A7FC45 /* Issue 3 (custom view) */,
 				72B7B99C2E794C1000A7FC45 /* Issue 4 (draw) */,
@@ -211,6 +213,7 @@
 				042720DF2E851FDB00928BF7 /* Issue 7 (Delegation pattern) */,
 				043C73B12E8CDAE9002C1C31 /* Issue 8 (VC life cycle) */,
 				04712AA32ED9581C00F590A3 /* Issue 15 (network + mvvm) */,
+				047AB39C2EE8126800C1EE18 /* issue 16 (custom markup) */,
 				04984DFE2EBB512A00DFA12E /* Issue11 (table view) */,
 				04CC1A452EC328BF00D5F12D /* Issue 13 (Collection view) */,
 				04D33C352EA62EF7004CF462 /* Issue 10 (MVC) */,

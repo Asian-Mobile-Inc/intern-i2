@@ -10,4 +10,5 @@ import Foundation
 struct Developer: Decodable, Hashable {
     let name: String
     let age: Int
+    var note: String = ""
 }

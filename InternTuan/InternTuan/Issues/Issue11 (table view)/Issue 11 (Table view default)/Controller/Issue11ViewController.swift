@@ -47,6 +47,11 @@ final class Issue11ViewController: UIViewController {
        ]
     ]
     
+    private var iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
+    private var androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23, note: "alo"), Developer(name: "anh Huy", age: 22, note: "Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;ádfasdfaÁdfnba;ksdbf’lakbsdf;lkabhsd’flkbasl;dfkba’lksdbf’alsdbf’lkabsdf’labksd’klfba’lskdbf’aljksbdf’alksbdf’lkasdf"), Developer(name: "Hoang", age: 21, note: "alo")]
+    
+    private var developers:[[Developer]] = [[]]
+    
     private var titles = [
         "ios",
         "android"
@@ -56,6 +61,8 @@ final class Issue11ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.developers.append(iosDev)
+        self.developers.append(androidDev)
         self.setupUI()
         self.setupTableView()
         self.setupHeaderView()
@@ -83,6 +90,9 @@ extension Issue11ViewController {
     
     private func setupTableView() {
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: StringConstants.tableViewCell.cell)
+        
+        let nib = UINib(nibName: StringConstants.tableViewCell.issue11DDScell, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: StringConstants.tableViewCell.issue11DDScell)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -118,24 +128,35 @@ extension Issue11ViewController: UITableViewDelegate {
 extension Issue11ViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return names.count
+        return developers.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names[section].count
+        return developers[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.tableViewCell.cell)!
-        cell.textLabel?.text = names[indexPath.section][indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.tableViewCell.cell)!
+//        cell.textLabel?.text = names[indexPath.section][indexPath.row]
+//        return cell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.tableViewCell.issue11DDScell, for: indexPath) as! Issue11DDSTableViewCell
+        cell.render(self.developers[indexPath.section][indexPath.row])
+        cell.delegate = self
+        cell.onTextChanged = { [weak self] text in
+            guard let self = self else {
+                return
+            }
+            self.developers[indexPath.section][indexPath.row].note = text
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = names[indexPath.section][indexPath.row]
-        debugPrint("did tap \(name)")
-        let vc = Issue11DetailViewController.instantiate(name: name)
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let name = names[indexPath.section][indexPath.row]
+//        debugPrint("did tap \(name)")
+//        let vc = Issue11DetailViewController.instantiate(name: name)
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView,
@@ -169,9 +190,9 @@ extension Issue11ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    moveRowAt sourceIndexPath: IndexPath,
                    to destinationIndexPath: IndexPath) {
-        let movedName = self.names[sourceIndexPath.section][sourceIndexPath.row]
-        self.names[sourceIndexPath.section].remove(at: sourceIndexPath.row)
-        self.names[destinationIndexPath.section].insert(movedName, at: destinationIndexPath.row)
+        let movedName = self.developers[sourceIndexPath.section][sourceIndexPath.row]
+        self.developers[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+        self.developers[destinationIndexPath.section].insert(movedName, at: destinationIndexPath.row)
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -181,8 +202,8 @@ extension Issue11ViewController: UITableViewDataSource {
 
 extension Issue11ViewController: UITableViewDragDelegate {
     func tableView(_ tableView: UITableView, itemsForBeginning session: any UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let dev = names[indexPath.section][indexPath.row]
-        let itemProvider = NSItemProvider(object: dev as NSString)
+        let dev = developers[indexPath.section][indexPath.row]
+        let itemProvider = NSItemProvider()
         let dragItem = UIDragItem(itemProvider: itemProvider)
         dragItem.localObject = dev
         return [dragItem]
@@ -215,5 +236,15 @@ extension Issue11ViewController: UITableViewDropDelegate {
         }
         
         coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
+    }
+}
+
+extension Issue11ViewController: Issue11DDSTableViewCellDelegate {
+
+    func textViewDidChange(_ cell: Issue11DDSTableViewCell) {
+        UIView.performWithoutAnimation {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
 }

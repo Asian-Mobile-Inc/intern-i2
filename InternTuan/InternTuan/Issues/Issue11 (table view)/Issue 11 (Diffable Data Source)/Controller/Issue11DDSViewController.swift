@@ -17,8 +17,8 @@ final class Issue11DDSViewController: UIViewController {
         case iOS = "iOS"
     }
     
-    private let iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
-    private let androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23), Developer(name: "anh Huy", age: 22), Developer(name: "Hoang", age: 21)]
+    private var iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
+    private var androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23), Developer(name: "anh Huy", age: 22), Developer(name: "Hoang", age: 21)]
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -54,6 +54,10 @@ extension Issue11DDSViewController {
         // Bật automatic dimension cho header
         self.tableView.sectionHeaderHeight = UITableView.automaticDimension
         self.tableView.estimatedSectionHeaderHeight = 36
+
+        // Bật automatic dimension cho cell
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 60
     }
     
     private func configureDataSource() {
@@ -62,6 +66,7 @@ extension Issue11DDSViewController {
             cellProvider: { (tableView, indexPath, developer) -> UITableViewCell? in
                 let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.tableViewCell.issue11DDScell, for: indexPath) as? Issue11DDSTableViewCell
                 cell?.render(developer)
+                cell?.delegate = self
                 return cell
             }
         )
@@ -177,7 +182,9 @@ extension Issue11DDSViewController: UITableViewDragDelegate, UITableViewDropDele
                 snapshot.appendItems([sourceDeveloper], toSection: destinationSection)
             }
             
-            dataSource.apply(snapshot, animatingDifferences: false)
+            dataSource.apply(snapshot, animatingDifferences: true)
+//            phải đặt cordinator.drop sau khi đã chỉnh snapshot --> nó drop theo indexPath --> nếu đùng data cũng sẽ dẫn đến nhầm lẫn ui
+            coordinator.drop(item.dragItem, toRowAt: destinationIndexPath)
         }
     }
     
@@ -185,5 +192,15 @@ extension Issue11DDSViewController: UITableViewDragDelegate, UITableViewDropDele
         let operation: UIDropOperation = (session.localDragSession != nil) ? .move : .copy
         // intent: insert tại vị trí drop
         return UITableViewDropProposal(operation: operation, intent: .insertAtDestinationIndexPath)
+    }
+}
+
+extension Issue11DDSViewController: Issue11DDSTableViewCellDelegate {
+
+    func textViewDidChange(_ cell: Issue11DDSTableViewCell) {
+        UIView.performWithoutAnimation {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
 }
