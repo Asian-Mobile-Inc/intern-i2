@@ -27,6 +27,11 @@ final class Issue14DefaultTabbarController: UITabBarController {
         self.setupTabbar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupCustomTabBarToBatchTabbar()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if (self.didAddCenterButton) {

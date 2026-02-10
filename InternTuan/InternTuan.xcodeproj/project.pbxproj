@@ -57,6 +57,7 @@
 		04DAA26B2ED455A80059EF56 /* Issue 14 (Tabbar Controller) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 14 (Tabbar Controller)"; sourceTree = "<group>"; };
 		04F08DFB2EC1F306004DC3DE /* Issue 12 (custom cell) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 12 (custom cell)"; sourceTree = "<group>"; };
 		04F9F6642E813A5800FA232A /* Issue 6 (stack view) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 6 (stack view)"; sourceTree = "<group>"; };
+		EE9D9EC32F39EA0A0085E26E /* Issue 16 (test custom tab bar) */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Issue 16 (test custom tab bar)"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +166,7 @@
 		72CA3F272E77AC5500375371 /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				EE9D9EC32F39EA0A0085E26E /* Issue 16 (test custom tab bar) */,
 				72B7B99A2E794BCD00A7FC45 /* Issue 1 (View) n 2 (touch) */,
 				72B7B99B2E794BF000A7FC45 /* Issue 3 (custom view) */,
 				72B7B99C2E794C1000A7FC45 /* Issue 4 (draw) */,
@@ -218,6 +220,7 @@
 				04DAA26B2ED455A80059EF56 /* Issue 14 (Tabbar Controller) */,
 				04F08DFB2EC1F306004DC3DE /* Issue 12 (custom cell) */,
 				04F9F6642E813A5800FA232A /* Issue 6 (stack view) */,
+				EE9D9EC32F39EA0A0085E26E /* Issue 16 (test custom tab bar) */,
 			);
 			name = InternTuan;
 			productName = InternTuan;

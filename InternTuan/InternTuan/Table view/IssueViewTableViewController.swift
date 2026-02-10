@@ -35,6 +35,11 @@ class IssueViewTableViewController: UITableViewController {
             let repository = UserRepository()
             let viewModel = Issue15MainViewModel(repository: repository)
             return Issue15MainViewController.instantiate(viewModel: viewModel)
+        }, {
+            // Issue 16: Custom Tab Bar Phase 0
+            let tabBarView = TabBarView()
+            let coordinator = TabCoordinator()
+            return CustomTabController(coordinator: coordinator, tabBarView: tabBarView)
         }
     ]
     
