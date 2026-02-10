@@ -12,6 +12,8 @@ final class TabBarView: UIView {
     
     weak var delegate: TabBarViewDelegate?
      
+    let button = UIButton()
+    
      private let stackView: UIStackView = {
          let stack = UIStackView()
          stack.axis = .horizontal
@@ -46,6 +48,13 @@ final class TabBarView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: -3) // Bóng đổ lên trên
         layer.shadowRadius = 8 // Độ lan tỏa của bóng
         
+        self.addSubview(button)
+        
+        button.backgroundColor = .red
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
+        button.isUserInteractionEnabled = true
+        
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -53,7 +62,12 @@ final class TabBarView: UIView {
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            button.centerYAnchor.constraint(equalTo: self.topAnchor),
+            button.widthAnchor.constraint(equalToConstant: 50),
+            button.heightAnchor.constraint(equalToConstant: 50),
+            button.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
         setupTabs()
@@ -69,17 +83,26 @@ final class TabBarView: UIView {
             // Gắn tag để biết view nào
             itemView.tag = tab.rawValue
             
-            // UIControl cũng dùng addTarget như Button
-            itemView.addTarget(self, action: #selector(didTapTab(_:)), for: .touchUpInside)
-            
             stackView.addArrangedSubview(itemView)
             itemViews.append(itemView)
+            
+            if tab == .search {
+                return
+            }
+            // UIControl cũng dùng addTarget như Button
+            itemView.addTarget(self, action: #selector(didTapTab(_:)), for: .touchUpInside)
         }
     }
     
     @objc private func didTapTab(_ sender: TabBarItemView) {
         guard let tab = Tab(rawValue: sender.tag) else { return }
         delegate?.tabBarView(self, didSelect: tab)
+        self.bringSubviewToFront(button)
+        self.button.layer.zPosition = 1000
+    }
+    
+    @objc private func tapButton() {
+        debugPrint("tap")
     }
     
     // Hàm update UI
