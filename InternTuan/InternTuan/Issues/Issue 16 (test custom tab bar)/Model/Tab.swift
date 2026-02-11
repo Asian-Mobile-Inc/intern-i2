@@ -12,6 +12,8 @@ enum Tab: Int, CaseIterable {
     case home
     case search
     case profile
+    case fourth
+    case fifth
     
     // UI Metadata (Dùng để hiển thị lên View)
     var title: String {
@@ -19,14 +21,14 @@ enum Tab: Int, CaseIterable {
         case .home: return "Home"
         case .search: return "Search"
         case .profile: return "Profile"
+        case .fourth: return "Fourth"
+        case .fifth: return "Fifth"
         }
     }
     
     var color: UIColor {
         switch self {
-        case .home: return .systemRed
-        case .search: return .systemGreen
-        case .profile: return .systemBlue
+        default: return .white
         }
     }
     
@@ -35,6 +37,8 @@ enum Tab: Int, CaseIterable {
         case .home: return UIImage(systemName: "house")
         case .search: return UIImage(systemName: "magnifyingglass")
         case .profile: return UIImage(systemName: "person")
+        case .fourth: return UIImage(systemName: "message")
+        case .fifth: return UIImage(systemName: "person.crop.circle")
         }
     }
     
@@ -43,6 +47,8 @@ enum Tab: Int, CaseIterable {
         case .home: return UIImage(systemName: "house.fill")
         case .search: return UIImage(systemName: "magnifyingglass") // Một số icon không có fill
         case .profile: return UIImage(systemName: "person.fill")
+        case .fourth: return UIImage(systemName: "message.fill")
+        case .fifth: return UIImage(systemName: "person.crop.circle.fill")
         }
     }
 }

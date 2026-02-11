@@ -23,6 +23,11 @@ struct Issue16ViewControllerFactory: ViewControllerFactory {
             rootVC = SecondViewController.instantiate()
         case .profile:
             rootVC = ThirtViewController.instantiate()
+        case .fourth:
+            rootVC = FourthViewController.instantiate()
+        case .fifth:
+            rootVC = FifthViewController.instantiate()
+            
         }
         
         // Wrap trong Navigation Controller để hỗ trợ push/pop
