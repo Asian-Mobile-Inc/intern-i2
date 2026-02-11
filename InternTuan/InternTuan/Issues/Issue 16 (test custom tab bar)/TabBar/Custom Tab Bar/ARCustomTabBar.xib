@@ -36,7 +36,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="Bj1-TY-YyH">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" highlightedImage="home_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Bj1-TY-YyH">
                                             <rect key="frame" x="49" y="0.0" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="Xop-of-kln"/>
@@ -85,7 +85,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lesson" translatesAutoresizingMaskIntoConstraints="NO" id="Qoa-wp-JGN">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lesson" highlightedImage="lesson_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Qoa-wp-JGN">
                                             <rect key="frame" x="49" y="0.0" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="9cF-un-kGh"/>
@@ -165,7 +165,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myart" translatesAutoresizingMaskIntoConstraints="NO" id="ZoS-eh-Cpc">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myart" highlightedImage="my_art_selected" translatesAutoresizingMaskIntoConstraints="NO" id="ZoS-eh-Cpc">
                                             <rect key="frame" x="49" y="0.0" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="o9p-ry-gM7"/>
@@ -214,7 +214,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="Svt-AY-ghv">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" highlightedImage="setting_selected" translatesAutoresizingMaskIntoConstraints="NO" id="Svt-AY-ghv">
                                             <rect key="frame" x="49" y="0.0" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="cTC-Vi-M4h"/>
@@ -266,6 +266,22 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backgroundView" destination="CFB-gU-zkB" id="IHD-jh-tBU"/>
+                <outlet property="homeIcon" destination="Bj1-TY-YyH" id="Qm7-Qf-Ezo"/>
+                <outlet property="homeLabel" destination="o8k-Pg-Lwj" id="eVh-xM-Kcd"/>
+                <outlet property="lessonIcon" destination="Qoa-wp-JGN" id="ega-xj-OJn"/>
+                <outlet property="lessonLabel" destination="nco-fX-r5T" id="HAe-oK-oD5"/>
+                <outlet property="myArtIcon" destination="ZoS-eh-Cpc" id="XYx-pZ-bE6"/>
+                <outlet property="myArtLabel" destination="iq0-jS-FTK" id="ozZ-yL-Dd7"/>
+                <outlet property="settingIcon" destination="Svt-AY-ghv" id="y1O-Io-z7H"/>
+                <outlet property="settingLabel" destination="jDM-sg-K5x" id="FfD-Rl-tXa"/>
+                <outletCollection property="tabBarIcons" destination="Bj1-TY-YyH" collectionClass="NSMutableArray" id="Iq1-cM-mgf"/>
+                <outletCollection property="tabBarIcons" destination="Qoa-wp-JGN" collectionClass="NSMutableArray" id="mvd-jy-H20"/>
+                <outletCollection property="tabBarIcons" destination="ZoS-eh-Cpc" collectionClass="NSMutableArray" id="bMO-ul-lCr"/>
+                <outletCollection property="tabBarIcons" destination="Svt-AY-ghv" collectionClass="NSMutableArray" id="YrH-hk-JhW"/>
+                <outletCollection property="tabBarLabels" destination="jDM-sg-K5x" collectionClass="NSMutableArray" id="OrY-JG-XS9"/>
+                <outletCollection property="tabBarLabels" destination="iq0-jS-FTK" collectionClass="NSMutableArray" id="TZY-RE-oGk"/>
+                <outletCollection property="tabBarLabels" destination="nco-fX-r5T" collectionClass="NSMutableArray" id="uwk-Y4-a3b"/>
+                <outletCollection property="tabBarLabels" destination="o8k-Pg-Lwj" collectionClass="NSMutableArray" id="oM2-kr-3Jm"/>
             </connections>
             <point key="canvasLocation" x="378.62595419847327" y="-163.73239436619718"/>
         </view>
@@ -273,9 +289,13 @@
     <resources>
         <image name="FAB +" width="60" height="60"/>
         <image name="home" width="24" height="24"/>
+        <image name="home_selected" width="24" height="24"/>
         <image name="lesson" width="24" height="24"/>
+        <image name="lesson_selected" width="24" height="24"/>
+        <image name="my_art_selected" width="24" height="24"/>
         <image name="myart" width="24" height="24"/>
         <image name="setting" width="24" height="24"/>
+        <image name="setting_selected" width="24" height="24"/>
         <systemColor name="systemTealColor">
             <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

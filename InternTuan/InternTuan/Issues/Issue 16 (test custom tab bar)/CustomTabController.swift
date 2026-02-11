@@ -46,6 +46,7 @@ final class CustomTabController: UIViewController {
         
         // Đồng bộ UI lúc đầu (highlight nút Home)
 //        tabBarView.updateUI(selectedIndex: defaultTab.rawValue)
+        customTabBar.updateUI(selectedTab: defaultTab)
         
         // Demo Badge: Gắn thử badge số 3 vào tab Profile chơi chơi
 //        tabBarView.setBadge("3", for: .profile)
@@ -134,6 +135,7 @@ final class CustomTabController: UIViewController {
 extension CustomTabController: TabBarViewDelegate {
     func tabBarView(_ view: ARCustomTabBar, didSelect tab: Tab) {
         coordinator.select(tab: tab, in: self)
+        customTabBar.updateUI(selectedTab: tab)
     }
     
     func tabBarView(_ view: TabBarView, didSelect tab: Tab) {
