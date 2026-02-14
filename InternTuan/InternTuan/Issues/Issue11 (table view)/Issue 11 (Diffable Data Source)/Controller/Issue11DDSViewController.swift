@@ -1,0 +1,189 @@
+//
+//  Issue11DDSViewController.swift
+//  InternTuan
+//
+//  Created by Nguên Bản on 30/10/25.
+//
+
+import UIKit
+import OSLog
+
+final class Issue11DDSViewController: UIViewController {
+
+    private let tableViewLogger = Logger(subsystem: "tuan", category: "tableView")
+    
+    enum Section: String {
+        case android = "Android"
+        case iOS = "iOS"
+    }
+    
+    private let iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
+    private let androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23), Developer(name: "anh Huy", age: 22), Developer(name: "Hoang", age: 21)]
+    
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var dataSource: DevDiffableDataSource!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTableView()
+        configureDataSource()
+        applyInitialSnapshot()
+    }
+    
+    static func instantiate() -> Issue11DDSViewController {
+        return Issue11DDSViewController(nibName: StringConstants.viewController.issue11DDSVC, bundle: nil)
+    }
+}
+
+//MARK: setup
+extension Issue11DDSViewController {
+    private func setupTableView() {
+        let nib = UINib(nibName: StringConstants.tableViewCell.issue11DDScell, bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: StringConstants.tableViewCell.issue11DDScell)
+        
+        let headerNib = UINib(nibName: StringConstants.header.header, bundle: nil)
+        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: StringConstants.header.header)
+        
+        self.tableView.delegate = self
+        self.tableView.dragDelegate = self
+        self.tableView.dropDelegate = self
+        self.tableView.dragInteractionEnabled = true
+
+        // Bật automatic dimension cho header
+        self.tableView.sectionHeaderHeight = UITableView.automaticDimension
+        self.tableView.estimatedSectionHeaderHeight = 36
+    }
+    
+    private func configureDataSource() {
+        self.dataSource = DevDiffableDataSource(
+            tableView: self.tableView,
+            cellProvider: { (tableView, indexPath, developer) -> UITableViewCell? in
+                let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.tableViewCell.issue11DDScell, for: indexPath) as? Issue11DDSTableViewCell
+                cell?.render(developer)
+                return cell
+            }
+        )
+       
+    }
+}
+
+//MARK: initiate
+extension Issue11DDSViewController {
+    private func applyInitialSnapshot() {
+        var snapShot = NSDiffableDataSourceSnapshot<Section, Developer>()
+        snapShot.appendSections([.android, .iOS])
+        snapShot.appendItems(androidDev, toSection: .android)
+        snapShot.appendItems(iosDev, toSection: .iOS)
+        dataSource.apply(snapShot, animatingDifferences: true)
+    }
+}
+
+//MARK: table view data source service
+extension Issue11DDSViewController {
+    private func addItem(_ section: Section, _ developers: [Developer]) {
+        var snapShot = dataSource.snapshot()
+        snapShot.appendItems(developers, toSection: section)
+        self.dataSource.apply(snapShot, animatingDifferences: true)
+    }
+}
+
+//MARK: IBAction
+extension Issue11DDSViewController {
+    @IBAction private func tapAddButon() {
+        let dev = [Developer(name: "Hieu", age: 21)]
+        self.addItem(.android, dev)
+    }
+    
+    @IBAction private func tapEditButton() {
+        self.tableView.setEditing(!(self.tableView.isEditing), animated: true)
+        let title = tableView.isEditing ? "Done" : "Edit"
+        editButton.setTitle(title, for: .normal)
+    }
+}
+
+//MARK: table view delegate
+extension Issue11DDSViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection sectionIndex: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: StringConstants.header.header) as? HeaderView else {
+            return nil
+        }
+        
+        let snapshot = dataSource.snapshot()
+        let section = snapshot.sectionIdentifiers[sectionIndex]
+        let items = snapshot.itemIdentifiers(inSection: section)
+        headerView.section = section
+        headerView.render(items.count)
+        
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        // Để Auto Layout tự tính dựa vào nội dung
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableViewLogger.debug("did select cell at \(indexPath)")
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableViewLogger.debug("did deselect cell at \(indexPath)")
+    }
+}
+
+// MARK: - Drag & Drop Delegate
+extension Issue11DDSViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+    
+    func tableView(_ tableView: UITableView,
+                   itemsForBeginning session: UIDragSession,
+                   at indexPath: IndexPath) -> [UIDragItem] {
+        guard let developer = dataSource.itemIdentifier(for: indexPath) else { return [] }
+        let itemProvider = NSItemProvider(object: developer.name as NSString)
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = developer
+        debugPrint("done drag")
+        return [dragItem]
+    }
+
+    func tableView(_ tableView: UITableView,
+                   canHandle session: UIDropSession) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView,performDropWith coordinator: UITableViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath else {
+            return
+        }
+        
+        if let item = coordinator.items.first,
+           let sourceDeveloper = item.dragItem.localObject as? Developer {
+            debugPrint(item)
+            var snapshot = dataSource.snapshot()
+            
+//            if let này dùng để kiểm tra item có tồn tại hay không
+            if let _ = snapshot.sectionIdentifier(containingItem: sourceDeveloper) {
+                snapshot.deleteItems([sourceDeveloper])
+            }
+            
+            let destinationSection = snapshot.sectionIdentifiers[destinationIndexPath.section]
+            let itemsInSection = snapshot.itemIdentifiers(inSection: destinationSection)
+            if destinationIndexPath.row < itemsInSection.count {
+                snapshot.insertItems([sourceDeveloper], beforeItem: itemsInSection[destinationIndexPath.row])
+            } else {
+                snapshot.appendItems([sourceDeveloper], toSection: destinationSection)
+            }
+            
+            dataSource.apply(snapshot, animatingDifferences: false)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: any UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        let operation: UIDropOperation = (session.localDragSession != nil) ? .move : .copy
+        // intent: insert tại vị trí drop
+        return UITableViewDropProposal(operation: operation, intent: .insertAtDestinationIndexPath)
+    }
+}
