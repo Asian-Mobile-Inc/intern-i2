@@ -47,7 +47,9 @@ final class Issue11ViewController: UIViewController {
        ]
     ]
     
-    private var iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
+    private var iosDev: [Developer] = [
+//        Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)
+    ]
     private var androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23, note: "alo"), Developer(name: "anh Huy", age: 22, note: "Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;dị; Ádfagdasdgasdgasgasdgafdgadsf;khấn;ádfasdfaÁdfnba;ksdbf’lakbsdf;lkabhsd’flkbasl;dfkba’lksdbf’alsdbf’lkabsdf’labksd’klfba’lskdbf’aljksbdf’alksbdf’lkasdf"), Developer(name: "Hoang", age: 21, note: "alo")]
     
     private var developers:[[Developer]] = [[]]
@@ -128,6 +130,7 @@ extension Issue11ViewController: UITableViewDelegate {
 extension Issue11ViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        debugPrint(developers.count)
         return developers.count
     }
     

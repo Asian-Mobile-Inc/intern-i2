@@ -18,7 +18,7 @@ final class Issue11DDSViewController: UIViewController {
     }
     
     private var iosDev = [Developer(name: "anh Thanh", age: 22), Developer(name: "Tuan", age: 21)]
-    private var androidDev = [Developer(name: "anh Vien", age: 23), Developer(name: "anh Tuan", age: 23), Developer(name: "anh Long", age: 23), Developer(name: "anh Huy", age: 22), Developer(name: "Hoang", age: 21)]
+    private var androidDev: [Developer] = []
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
